@@ -1,1 +1,12 @@
 @import "./app//common/styles/common.scss";
+
+:root {
+  --dft-basic-dark: #000;
+  --dft-basic-dark-80: rgba(0, 0, 0, 0.8);
+  --dft-basic-light: #fff;
+}
+
+body {
+  height: 100vh;
+  display: block;
+}
