@@ -1,10 +1,37 @@
-<div class="dft-side-pannel">
-  <header class="dft-side-pannel__header">
-    <div class="dft-side-pannel-app-label"></div>
-    <button class="dft-side-pannel-collapse"></button>
-  </header>
-  <main class="dft-side-pannel__main">
-    <div class="dft-side-pannel-search"></div>
-    <div class="dft-side-pannel-spaces"></div>
-  </main>
+<button class="dft-side-pannel-open-close" (click)="togglePannel()">
+  {{ pannelSign }}
+</button>
+
+<div
+  class="dft-side-pannel"
+  [class.mod-opened]="pannelIsOpened"
+  [class.mod-closed]="!pannelIsOpened"
+>
+  <div class="dft-side-pannel-search-pannel">
+    <input type="text" placeholder="Search..." />
+    <img
+      class="dft-side-pannel-search-pannel-icon"
+      src="assets/icons/search.png"
+      alt="search"
+    />
+  </div>
+
+  <div class="dft-side-pannel-spaces" [class.mod-closed]="!spacesAreOpened">
+    <div class="dft-side-pannel-spaces-header" (click)="toggleSpaces()">
+      <div>Spaces</div>
+      <div
+        class="dft-side-pannel-spaces__open-close"
+        [class.mod-opened]="spacesAreOpened"
+        [class.mod-closed]="!spacesAreOpened"
+      >
+        {{ spaceSign }}
+      </div>
+    </div>
+    <div
+      class="dft-side-pannel-spaces-main"
+      [class.mod-hidden]="!spacesAreOpened"
+    >
+      <button class="dft-side-pannel-create-space">+ new space</button>
+    </div>
+  </div>
 </div>
