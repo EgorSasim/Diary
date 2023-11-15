@@ -1,8 +1,10 @@
 @import "./app//common/styles/common.scss";
 
 :root {
-  --dft-basic-dark: #000;
+  --dft-basic-dark: rgba(0, 0, 0, 1);
   --dft-basic-dark-80: rgba(0, 0, 0, 0.8);
+  --dft-basic-dark-60: rgba(0, 0, 0, 0.6);
+  --dft-basic-dark-50: rgba(0, 0, 0, 0.5);
   --dft-basic-light: rgba(255, 255, 255, 1);
   --dft-basic-light-80: rgba(255, 255, 255, 0.8);
   --dft-basic-gray: rgba(240, 241, 243, 1);
@@ -17,4 +19,12 @@ body {
   height: auto;
   margin: 0;
   overflow: hidden;
+}
+
+.dft-lightbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background-color: var(--dft-basic-dark-50);
 }

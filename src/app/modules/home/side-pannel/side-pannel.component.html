@@ -1,3 +1,11 @@
+<dft-lightbox *ngIf="isLightboxVisible$ | async">
+  <dft-create-space
+    lightbox-body
+    class="dft-side-pannel-create-space-modal"
+    (close)="hideCreateSpaceLightbox()"
+  ></dft-create-space>
+</dft-lightbox>
+
 <button class="dft-side-pannel-open-close" (click)="togglePannel()">
   {{ pannelSign }}
 </button>
@@ -20,7 +28,6 @@
     <div class="dft-side-pannel-spaces-header" (click)="toggleSpaces()">
       <div>Spaces</div>
       <div
-        class="dft-side-pannel-spaces__open-close"
         [class.mod-opened]="spacesAreOpened"
         [class.mod-closed]="!spacesAreOpened"
       >
@@ -31,7 +38,12 @@
       class="dft-side-pannel-spaces-main"
       [class.mod-hidden]="!spacesAreOpened"
     >
-      <button class="dft-side-pannel-create-space">+ new space</button>
+      <button
+        class="dft-side-pannel-create-space"
+        (click)="showCreateSpaceLightbox()"
+      >
+        + new space
+      </button>
     </div>
   </div>
 </div>

@@ -1,0 +1,13 @@
+<ng-template #templateRef>
+  <div class="dft-lightbox">
+    <div class="dft-lightbox-header">
+      <ng-content select="[lightbox-header]"></ng-content>
+    </div>
+    <div class="ligthbox-body">
+      <ng-content select="[lightbox-body]"></ng-content>
+    </div>
+    <div class="ligthbox-footer">
+      <ng-content select="[ligthbox-footer]"></ng-content>
+    </div>
+  </div>
+</ng-template>
