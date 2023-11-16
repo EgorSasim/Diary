@@ -1,0 +1,12 @@
+<div class="dft-create-space-modal">
+  <button class="dft-create-space-modal-close" (click)="closeModal()">
+    {{ hideSign }}
+  </button>
+  <header class="dft-create-space-modal__header">Create space</header>
+  <input
+    type="text"
+    placeholder="Write space name..."
+    [formControl]="formGroup.controls['name']"
+  />
+  <button (click)="createSpace()">Create</button>
+</div>

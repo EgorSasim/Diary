@@ -64,8 +64,8 @@
 
 .dft-side-pannel-spaces-main {
   width: 100%;
-  height: 4rem;
   display: flex;
+  flex-direction: column;
 
   justify-content: center;
 

@@ -8,6 +8,15 @@
   position: relative;
 }
 
+.dft-create-space-modal__header {
+  padding: 3rem;
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: var(--dft-header-size);
+  font-weight: var(--dft-header-weight);
+}
+
 .dft-create-space-modal-close {
   position: absolute;
   right: 1rem;
