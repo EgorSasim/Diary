@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { getServerUrl } from 'src/app/api/common/server/server.constants';
-import { Space } from 'src/app/modules/common/spaces/create-space/create-space.typings';
+import { Space } from 'src/app/modules/spaces/create-space/create-space.typings';
 
 @Injectable({
   providedIn: 'root',

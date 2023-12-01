@@ -5,9 +5,8 @@ import {
   Output,
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { SpaceApiService } from 'src/app/api/common/space/spase-api.service';
-import { CreateSpaceModalService } from 'src/app/modules/common/spaces/create-space/create-space-modal.service';
-import { Space } from 'src/app/modules/common/spaces/create-space/create-space.typings';
+import { CreateSpaceModalService } from 'src/app/modules/spaces/create-space/create-space-modal.service';
+import { Space } from 'src/app/modules/spaces/create-space/create-space.typings';
 
 @Component({
   selector: 'dft-create-space',
