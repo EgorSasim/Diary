@@ -1,1 +1,32 @@
-<h1>Authentication, please!!!!</h1>
+<h1>LogIn</h1>
+<input
+  type="text"
+  placeholder="email"
+  [formControl]="logInForm.controls['email']"
+/>
+<input
+  type="text"
+  placeholder="password"
+  [formControl]="logInForm.controls['password']"
+/>
+
+<button (click)="logIn()">Log in</button>
+
+<h1>Or Sign up</h1>
+<input
+  type="text"
+  placeholder="email"
+  [formControl]="signUpForm.controls['email']"
+/>
+<input
+  type="text"
+  placeholder="password"
+  [formControl]="signUpForm.controls['password']"
+/>
+<input
+  type="text"
+  placeholder="name"
+  [formControl]="signUpForm.controls['name']"
+/>
+
+<button (click)="signUp()">Sign up</button>
