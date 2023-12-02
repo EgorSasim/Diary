@@ -17,8 +17,11 @@ export class AuthenticationService {
 
   constructor(private httpClient: HttpClient) {}
 
-  public checkAuthentication(): boolean {
-    return this.isAuthenticated;
+  public checkAuthentication(): Observable<boolean> {
+    if (!localStorage.getItem('token')) {
+      return of(false);
+    }
+    return this.httpClient.get<boolean>(`${this.serverUrl}/authenticate`);
   }
 
   public logIn(params: FormData<LogInForm>): Observable<FormData<LogInForm>> {

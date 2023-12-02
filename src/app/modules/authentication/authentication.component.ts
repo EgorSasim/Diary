@@ -45,7 +45,7 @@ export class AuthenticationComponent {
       .subscribe((response) => {
         localStorage.setItem('token', response['access_token']);
         localStorage.setItem('userId', response['id']);
-        this.router.navigateByUrl('/');
+        this.router.navigate(['/home']);
       });
   }
 
@@ -60,7 +60,7 @@ export class AuthenticationComponent {
       .subscribe((response) => {
         localStorage.setItem('token', response['access_token']);
         localStorage.setItem('userId', response['id']);
-        this.router.navigateByUrl('/');
+        this.router.navigate(['/home']);
       });
   }
 }
