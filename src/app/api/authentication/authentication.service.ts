@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { FormData } from 'src/app/api/common/form.typings';
 import { getServerUrl } from 'src/app/api/common/server/server.constants';
+import { ACCESS_TOKEN, REFRESH_TOKEN } from 'src/app/common/constants/tokens';
 import {
   LogInForm,
   SignUpForm,
@@ -12,16 +13,12 @@ import {
   providedIn: 'root',
 })
 export class AuthenticationService {
-  private isAuthenticated: boolean = false;
   private serverUrl = getServerUrl();
 
   constructor(private httpClient: HttpClient) {}
 
-  public checkAuthentication(): Observable<boolean> {
-    if (!localStorage.getItem('token')) {
-      return of(false);
-    }
-    return this.httpClient.get<boolean>(`${this.serverUrl}/authenticate`);
+  public checkAuthentication(): boolean {
+    return !!localStorage.getItem(ACCESS_TOKEN);
   }
 
   public logIn(params: FormData<LogInForm>): Observable<FormData<LogInForm>> {
@@ -38,5 +35,19 @@ export class AuthenticationService {
       `${this.serverUrl}/signup`,
       { email: params.email, password: params.password, name: params.name }
     );
+  }
+
+  public refreshToken(): Observable<any> {
+    return this.httpClient.post(
+      `${this.serverUrl}/refresh-token`,
+      {
+        [REFRESH_TOKEN]: localStorage.getItem(REFRESH_TOKEN),
+      },
+      { responseType: 'text' }
+    );
+  }
+
+  public setAccessToken(token: string): void {
+    localStorage.setItem(ACCESS_TOKEN, token);
   }
 }

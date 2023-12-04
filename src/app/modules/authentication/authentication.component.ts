@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable, takeUntil } from 'rxjs';
 import { AuthenticationService } from 'src/app/api/authentication/authentication.service';
+import { ACCESS_TOKEN, REFRESH_TOKEN } from 'src/app/common/constants/tokens';
 import { DestroyService } from 'src/app/common/services/common/destroy/destroy.service';
 import {
   LogInForm,
@@ -35,7 +36,6 @@ export class AuthenticationComponent {
   ) {}
 
   public logIn(): void {
-    console.log('log in');
     this.authenticationService
       .logIn({
         email: this.logInForm.controls['email'].value,
@@ -43,14 +43,13 @@ export class AuthenticationComponent {
       })
       .pipe(takeUntil(this.destroyService.destroy$))
       .subscribe((response) => {
-        localStorage.setItem('token', response['access_token']);
-        localStorage.setItem('userId', response['id']);
+        localStorage.setItem(ACCESS_TOKEN, response[ACCESS_TOKEN]);
+        localStorage.setItem(REFRESH_TOKEN, response[REFRESH_TOKEN]);
         this.router.navigate(['/home']);
       });
   }
 
   public signUp(): void {
-    console.log('sign up');
     this.authenticationService
       .signUp({
         email: this.signUpForm.controls['email'].value,
@@ -58,8 +57,8 @@ export class AuthenticationComponent {
         name: this.signUpForm.controls['name'].value,
       })
       .subscribe((response) => {
-        localStorage.setItem('token', response['access_token']);
-        localStorage.setItem('userId', response['id']);
+        localStorage.setItem(ACCESS_TOKEN, response[ACCESS_TOKEN]);
+        localStorage.setItem(REFRESH_TOKEN, response[REFRESH_TOKEN]);
         this.router.navigate(['/home']);
       });
   }

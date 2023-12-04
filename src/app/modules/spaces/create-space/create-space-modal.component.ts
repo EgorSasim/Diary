@@ -35,7 +35,6 @@ export class CreateSpaceComponent {
       .createSpace(this.formGroup.controls['name'].value)
       .subscribe({
         next: (res: Space) => {
-          console.log(res);
           this.create.emit(res);
           this.closeModal();
         },
