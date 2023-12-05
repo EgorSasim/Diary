@@ -13,6 +13,7 @@ import { JwtInterceptor } from 'src/app/intercepters/jwt-intercepter';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { LangSelectorModule } from 'src/app/modules/common/lang-selector/lang-selector.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -33,6 +34,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
     }),
     LangSelectorModule,
+    BrowserAnimationsModule,
   ],
   exports: [TranslateModule],
   providers: [
