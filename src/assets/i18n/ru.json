@@ -1,0 +1,13 @@
+{
+    "app.createSpace": "Создать пространство",
+    "app.newSpace": "Новое пространство",
+    "app.spaces": "Пространства",
+    "app.enLang": "Английский",
+    "app.ruLang": "Русский",
+    "app.signUp": "Зарегистрироваться",
+    "app.logIn": "Войти",
+    "app.email": "Email",
+    "app.password": "Пароль",
+    "app.userName": "Имя",
+    "app.create": "Создать"
+}

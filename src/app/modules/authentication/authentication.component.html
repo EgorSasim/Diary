@@ -1,32 +1,32 @@
-<h1>LogIn</h1>
+<h1>{{ "app.logIn" | translate }}</h1>
 <input
   type="text"
-  placeholder="email"
+  placeholder="{{ 'app.email' | translate }}"
   [formControl]="logInForm.controls['email']"
 />
 <input
   type="text"
-  placeholder="password"
+  placeholder="{{ 'app.password' | translate }}"
   [formControl]="logInForm.controls['password']"
 />
 
-<button (click)="logIn()">Log in</button>
+<button (click)="logIn()">{{ "app.logIn" | translate }}</button>
 
-<h1>Or Sign up</h1>
+<h1>{{ "app.signUp" | translate }}</h1>
 <input
   type="text"
-  placeholder="email"
+  placeholder="{{ 'app.email' | translate }}"
   [formControl]="signUpForm.controls['email']"
 />
 <input
   type="text"
-  placeholder="password"
+  placeholder="{{ 'app.password' | translate }}"
   [formControl]="signUpForm.controls['password']"
 />
 <input
   type="text"
-  placeholder="name"
+  placeholder="{{ 'app.userName' | translate }}"
   [formControl]="signUpForm.controls['name']"
 />
 
-<button (click)="signUp()">Sign up</button>
+<button (click)="signUp()">{{ "app.signUp" | translate }}</button>

@@ -27,7 +27,7 @@
 
   <div class="dft-side-pannel-spaces" [class.mod-closed]="!spacesAreOpened">
     <div class="dft-side-pannel-spaces-header" (click)="toggleSpaces()">
-      <div>Spaces</div>
+      <div>{{ "app.spaces" | translate }}</div>
       <div
         [class.mod-opened]="spacesAreOpened"
         [class.mod-closed]="!spacesAreOpened"
@@ -44,7 +44,7 @@
         class="dft-side-pannel-create-space"
         (click)="showCreateSpaceLightbox()"
       >
-        + new space
+        + {{ "app.newSpace" | translate }}
       </button>
     </div>
   </div>

@@ -2,7 +2,9 @@
   <button class="dft-create-space-modal-close" (click)="closeModal()">
     {{ hideSign }}
   </button>
-  <header class="dft-create-space-modal__header">Create space</header>
+  <header class="dft-create-space-modal__header">
+    {{ "app.createSpace" | translate }}
+  </header>
   <input
     type="text"
     placeholder="Write space name..."
