@@ -1,4 +1,7 @@
-<select (change)="setLanguage($event.target['value'])">
-  <option value="en">English</option>
-  <option value="ru">Русский</option>
-</select>
+<mat-form-field>
+  <mat-label>{{ "app.selectLanguage" | translate }}</mat-label>
+  <mat-select [value]="'en'" (selectionChange)="setLanguage($event.value)">
+    <mat-option value="en">{{ "app.enLang" | translate }}</mat-option>
+    <mat-option value="ru">{{ "app.ruLang" | translate }}</mat-option>
+  </mat-select>
+</mat-form-field>

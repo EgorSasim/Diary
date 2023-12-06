@@ -1,0 +1,13 @@
+<mat-form-field class="example-full-width">
+  <mat-label>{{ label }}</mat-label>
+  <input
+    type="{{ type }}"
+    matInput
+    [formControl]="control"
+    placeholder="{{ placeholder }}"
+  />
+
+  <mat-error *ngFor="let error of errors?.entries()">{{
+    error[1] | translate
+  }}</mat-error>
+</mat-form-field>

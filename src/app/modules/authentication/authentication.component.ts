@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable, takeUntil } from 'rxjs';
+import { takeUntil } from 'rxjs';
 import { AuthenticationService } from 'src/app/api/authentication/authentication.service';
 import { ACCESS_TOKEN, REFRESH_TOKEN } from 'src/app/common/constants/tokens';
 import { DestroyService } from 'src/app/common/services/common/destroy/destroy.service';
@@ -18,15 +18,19 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthenticationComponent {
+  public readonly requiredFieldError = new Map([
+    ['required', 'app.requiredField'],
+  ]);
+
   public logInForm: FormGroup<LogInForm> = new FormGroup({
-    email: new FormControl(null),
-    password: new FormControl(null),
+    email: new FormControl(null, [Validators.required, Validators.email]),
+    password: new FormControl(null, [Validators.required]),
   });
 
   public signUpForm: FormGroup<SignUpForm> = new FormGroup({
-    email: new FormControl(null),
-    password: new FormControl(null),
-    name: new FormControl(null),
+    email: new FormControl(null, [Validators.required, Validators.email]),
+    password: new FormControl(null, [Validators.required]),
+    name: new FormControl(null, [Validators.required]),
   });
 
   constructor(

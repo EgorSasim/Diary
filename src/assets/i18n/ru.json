@@ -6,8 +6,10 @@
     "app.ruLang": "Русский",
     "app.signUp": "Зарегистрироваться",
     "app.logIn": "Войти",
-    "app.email": "Email",
+    "app.email": "Мыло",
     "app.password": "Пароль",
     "app.userName": "Имя",
-    "app.create": "Создать"
+    "app.create": "Создать",
+    "app.requiredField": "Обязательное поле",
+    "app.selectLanguage": "Выбрать язык"
 }

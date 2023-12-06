@@ -1,36 +1,55 @@
-<h1>{{ "app.logIn" | translate }}</h1>
-<input
-  type="text"
-  placeholder="{{ 'app.email' | translate }}"
-  [formControl]="logInForm.controls['email']"
-/>
-<input
-  type="text"
-  placeholder="{{ 'app.password' | translate }}"
-  [formControl]="logInForm.controls['password']"
-/>
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center">
+  <mat-tab label="{{ 'app.logIn' | translate }}">
+    <dft-input
+      [type]="'email'"
+      [placeholder]="'app.email' | translate"
+      [label]="'app.email' | translate"
+      [control]="logInForm.controls['email']"
+    ></dft-input>
+    <dft-input
+      type="text"
+      [placeholder]="'app.password' | translate"
+      [label]="'app.password' | translate"
+      [control]="logInForm.controls['password']"
+      [errors]="requiredFieldError"
+    ></dft-input>
 
-<button mat-raised-button color="primary" (click)="logIn()">
-  {{ "app.logIn" | translate }}
-</button>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="logInForm.invalid"
+      (click)="logIn()"
+    >
+      {{ "app.logIn" | translate }}
+    </button>
+  </mat-tab>
+  <mat-tab label="{{ 'app.signUp' | translate }}">
+    <dft-input
+      [type]="'email'"
+      [placeholder]="'app.email' | translate"
+      [label]="'app.email' | translate"
+      [control]="signUpForm.controls['email']"
+    ></dft-input>
+    <dft-input
+      [type]="'password'"
+      [placeholder]="'app.password' | translate"
+      [label]="'app.password' | translate"
+      [control]="signUpForm.controls['password']"
+    ></dft-input>
+    <dft-input
+      [type]="'text'"
+      [placeholder]="'app.userName' | translate"
+      [label]="'app.userName' | translate"
+      [control]="signUpForm.controls['name']"
+    ></dft-input>
 
-<h1>{{ "app.signUp" | translate }}</h1>
-<input
-  type="text"
-  placeholder="{{ 'app.email' | translate }}"
-  [formControl]="signUpForm.controls['email']"
-/>
-<input
-  type="text"
-  placeholder="{{ 'app.password' | translate }}"
-  [formControl]="signUpForm.controls['password']"
-/>
-<input
-  type="text"
-  placeholder="{{ 'app.userName' | translate }}"
-  [formControl]="signUpForm.controls['name']"
-/>
-
-<button mat-raised-button color="primary" (click)="signUp()">
-  {{ "app.signUp" | translate }}
-</button>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="signUpForm.invalid"
+      (click)="signUp()"
+    >
+      {{ "app.signUp" | translate }}
+    </button></mat-tab
+  >
+</mat-tab-group>

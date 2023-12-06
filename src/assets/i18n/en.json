@@ -9,5 +9,8 @@
     "app.email": "Email",
     "app.password": "Password",
     "app.userName": "Name",
-    "app.create": "Create"
+    "app.create": "Create",
+    "app.requiredField": "Required field",
+    "app.selectLanguage": "Select language"
+
 }
