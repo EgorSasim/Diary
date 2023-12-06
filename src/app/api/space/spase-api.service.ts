@@ -13,7 +13,7 @@ export class SpaceApiService {
   constructor(private httpClient: HttpClient) {}
 
   public createSpace(name: string): Observable<Space> {
-    return this.httpClient.post(`${this.serverUrl}/spaces`, {
+    return this.httpClient.post(`${this.serverUrl}/space`, {
       name,
     }) as Observable<Space>;
   }

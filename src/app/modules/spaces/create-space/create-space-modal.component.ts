@@ -9,13 +9,13 @@ import { CreateSpaceModalService } from 'src/app/modules/spaces/create-space/cre
 import { Space } from 'src/app/modules/spaces/create-space/create-space.typings';
 
 @Component({
-  selector: 'dft-create-space',
+  selector: 'dft-create-space-modal',
   templateUrl: './create-space-modal.component.html',
   styleUrls: ['./create-space-modal.component.scss'],
   providers: [CreateSpaceModalService],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CreateSpaceComponent {
+export class CreateSpaceModalComponent {
   @Output() create: EventEmitter<Space> = new EventEmitter();
   @Output() public close: EventEmitter<void> = new EventEmitter();
   public readonly hideSign: string = 'X';

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
-import { CreateSpaceComponent } from 'src/app/modules/spaces/create-space/create-space-modal.component';
+import { CreateSpaceModalComponent } from 'src/app/modules/spaces/create-space/create-space-modal.component';
 
 @NgModule({
-  declarations: [CreateSpaceComponent],
+  declarations: [CreateSpaceModalComponent],
   imports: [ReactiveFormsModule, TranslateModule],
-  exports: [CreateSpaceComponent],
+  exports: [CreateSpaceModalComponent],
 })
 export class CreateSpaceModalModule {}

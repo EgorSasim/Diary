@@ -1,10 +1,10 @@
 <dft-lightbox *ngIf="isLightboxVisible$ | async">
-  <dft-create-space
+  <dft-create-space-modal
     lightbox-body
     class="dft-side-pannel-create-space-modal"
     (close)="hideCreateSpaceLightbox()"
     (create)="refreshSpaces()"
-  ></dft-create-space>
+  ></dft-create-space-modal>
 </dft-lightbox>
 
 <button class="dft-side-pannel-open-close" (click)="togglePannel()">
