@@ -10,7 +10,9 @@
   [formControl]="logInForm.controls['password']"
 />
 
-<button (click)="logIn()">{{ "app.logIn" | translate }}</button>
+<button mat-raised-button color="primary" (click)="logIn()">
+  {{ "app.logIn" | translate }}
+</button>
 
 <h1>{{ "app.signUp" | translate }}</h1>
 <input
@@ -29,4 +31,6 @@
   [formControl]="signUpForm.controls['name']"
 />
 
-<button (click)="signUp()">{{ "app.signUp" | translate }}</button>
+<button mat-raised-button color="primary" (click)="signUp()">
+  {{ "app.signUp" | translate }}
+</button>
