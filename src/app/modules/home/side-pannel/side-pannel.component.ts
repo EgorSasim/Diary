@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { LightboxService } from 'src/app/modules/common/lightbox/lightbox.component.service';
 import { SidePannelService } from 'src/app/modules/home/side-pannel/side-pannel.service';
 import { Space } from 'src/app/modules/spaces/create-space/create-space.typings';
@@ -30,7 +30,9 @@ export class SidePannelComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    this.spaces$ = this.sidePannelService.getSpaces();
+    this.spaces$ = this.sidePannelService
+      .getSpaces()
+      .pipe(tap((spaces) => console.log('spaces: ', spaces)));
 
     this.pannelSign = this.closePannelSign;
     this.spaceSign = this.openSpaceSign;

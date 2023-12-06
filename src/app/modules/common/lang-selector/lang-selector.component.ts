@@ -11,7 +11,6 @@ export class LangSelectorComponent {
   constructor(private translateService: TranslateService) {}
 
   public setLanguage(language: any): void {
-    console.log('language: ', language);
     this.translateService.use(language);
   }
 }

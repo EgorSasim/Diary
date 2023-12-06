@@ -21,7 +21,7 @@ export class CreateSpaceModalComponent {
   public readonly hideSign: string = 'X';
 
   public formGroup: FormGroup<Space> = new FormGroup({
-    name: new FormControl(null),
+    title: new FormControl(null),
   });
 
   constructor(private createSpaceModalService: CreateSpaceModalService) {}
@@ -32,7 +32,7 @@ export class CreateSpaceModalComponent {
 
   public createSpace(): void {
     this.createSpaceModalService
-      .createSpace(this.formGroup.controls['name'].value)
+      .createSpace(this.formGroup.controls['title'].value)
       .subscribe({
         next: (res: Space) => {
           this.create.emit(res);

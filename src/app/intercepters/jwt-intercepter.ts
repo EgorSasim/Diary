@@ -26,7 +26,6 @@ export class JwtInterceptor implements HttpInterceptor {
 
     return next.handle(request).pipe(
       catchError((err: HttpErrorResponse) => {
-        console.log('error: ', err);
         if (err.status === 401) {
           alert('Invalid email or password');
         } else if (

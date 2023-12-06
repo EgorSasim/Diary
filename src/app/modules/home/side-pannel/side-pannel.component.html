@@ -39,7 +39,7 @@
       class="dft-side-pannel-spaces-main"
       [class.mod-hidden]="!spacesAreOpened"
     >
-      <div *ngFor="let space of spaces$ | async">{{ space.name }}</div>
+      <div *ngFor="let space of spaces$ | async">{{ space.title }}</div>
       <button
         class="dft-side-pannel-create-space"
         (click)="showCreateSpaceLightbox()"
