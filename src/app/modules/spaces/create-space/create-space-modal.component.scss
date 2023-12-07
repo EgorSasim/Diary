@@ -1,0 +1,27 @@
+.dft-create-space-modal {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.dft-create-space-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.dft-create-space-modal-content {
+  width: 36%;
+  margin: 10% auto;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dft-create-space-modal-content__item {
+  flex-grow: 1;
+}

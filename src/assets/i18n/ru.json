@@ -2,6 +2,7 @@
     "app.createSpace": "Создать пространство",
     "app.newSpace": "Новое пространство",
     "app.spaces": "Пространства",
+    "app.provideSpaceName": "Введите имя пространства",
     "app.enLang": "Английский",
     "app.ruLang": "Русский",
     "app.signUp": "Зарегистрироваться",

@@ -1,51 +1,34 @@
+<mat-drawer-container class="dft-side-pannel" autosize>
+  <mat-drawer #drawer class="dft-side-pannel-content" mode="side">
+    <p>{{ "app.spaces" | translate }}</p>
+    <dft-spaces-accordion [spaces]="spaces$ | async"></dft-spaces-accordion>
+    <div class="dft-side-pannel-create-space">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="showCreateSpaceLightbox()"
+      >
+        {{ "app.createSpace" | translate }}
+      </button>
+    </div>
+  </mat-drawer>
+
+  <div>
+    <button
+      mat-icon-button
+      color="primary"
+      aria-label="Example icon button with a menu icon"
+      (click)="drawer.toggle()"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+</mat-drawer-container>
+
 <dft-lightbox *ngIf="isLightboxVisible$ | async">
   <dft-create-space-modal
     lightbox-body
-    class="dft-side-pannel-create-space-modal"
     (close)="hideCreateSpaceLightbox()"
     (create)="refreshSpaces()"
   ></dft-create-space-modal>
 </dft-lightbox>
-
-<button class="dft-side-pannel-open-close" (click)="togglePannel()">
-  {{ pannelSign }}
-</button>
-
-<div
-  class="dft-side-pannel"
-  [class.mod-opened]="pannelIsOpened"
-  [class.mod-closed]="!pannelIsOpened"
->
-  <div class="dft-side-pannel-search-pannel">
-    <input type="text" placeholder="Search..." />
-    <img
-      class="dft-side-pannel-search-pannel-icon"
-      src="assets/icons/search.png"
-      alt="search"
-    />
-  </div>
-
-  <div class="dft-side-pannel-spaces" [class.mod-closed]="!spacesAreOpened">
-    <div class="dft-side-pannel-spaces-header" (click)="toggleSpaces()">
-      <div>{{ "app.spaces" | translate }}</div>
-      <div
-        [class.mod-opened]="spacesAreOpened"
-        [class.mod-closed]="!spacesAreOpened"
-      >
-        {{ spaceSign }}
-      </div>
-    </div>
-    <div
-      class="dft-side-pannel-spaces-main"
-      [class.mod-hidden]="!spacesAreOpened"
-    >
-      <div *ngFor="let space of spaces$ | async">{{ space.title }}</div>
-      <button
-        class="dft-side-pannel-create-space"
-        (click)="showCreateSpaceLightbox()"
-      >
-        + {{ "app.newSpace" | translate }}
-      </button>
-    </div>
-  </div>
-</div>

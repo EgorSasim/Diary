@@ -13,16 +13,8 @@ import { Space } from 'src/app/modules/spaces/create-space/create-space.typings'
 })
 export class SidePannelComponent implements OnInit {
   public isLightboxVisible$ = this.ligthboxService.getVisibility$();
-  public pannelSign: string;
-  public pannelIsOpened = true;
-  public spaceSign: string;
-  public spacesAreOpened = false;
   public spaces$: Observable<Space[]>;
-
-  private readonly closePannelSign: string = '<<';
-  private readonly openPannelSign: string = '>>';
-  private readonly closeSpacesSign: string = 'V';
-  private readonly openSpaceSign: string = '>';
+  public showFiller = false;
 
   constructor(
     private ligthboxService: LightboxService,
@@ -30,28 +22,7 @@ export class SidePannelComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    this.spaces$ = this.sidePannelService
-      .getSpaces()
-      .pipe(tap((spaces) => console.log('spaces: ', spaces)));
-
-    this.pannelSign = this.closePannelSign;
-    this.spaceSign = this.openSpaceSign;
-  }
-
-  public togglePannel(): void {
-    this.pannelSign =
-      this.pannelSign === this.closePannelSign
-        ? this.openPannelSign
-        : this.closePannelSign;
-    this.pannelIsOpened = !this.pannelIsOpened;
-  }
-
-  public toggleSpaces(): void {
-    this.spaceSign =
-      this.spaceSign === this.closeSpacesSign
-        ? this.openSpaceSign
-        : this.closeSpacesSign;
-    this.spacesAreOpened = !this.spacesAreOpened;
+    this.spaces$ = this.sidePannelService.getSpaces();
   }
 
   public showCreateSpaceLightbox(): void {

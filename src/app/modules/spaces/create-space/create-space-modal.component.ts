@@ -4,7 +4,8 @@ import {
   EventEmitter,
   Output,
 } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { REQUIRED_FIELD_ERROR } from 'src/app/common/constants/control-errors';
 import { CreateSpaceModalService } from 'src/app/modules/spaces/create-space/create-space-modal.service';
 import { Space } from 'src/app/modules/spaces/create-space/create-space.typings';
 
@@ -18,10 +19,11 @@ import { Space } from 'src/app/modules/spaces/create-space/create-space.typings'
 export class CreateSpaceModalComponent {
   @Output() create: EventEmitter<Space> = new EventEmitter();
   @Output() public close: EventEmitter<void> = new EventEmitter();
-  public readonly hideSign: string = 'X';
+
+  public readonly requiredFieldError = REQUIRED_FIELD_ERROR;
 
   public formGroup: FormGroup<Space> = new FormGroup({
-    title: new FormControl(null),
+    title: new FormControl(null, Validators.required),
   });
 
   constructor(private createSpaceModalService: CreateSpaceModalService) {}

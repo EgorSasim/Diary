@@ -9,7 +9,7 @@
 
   <mat-error *ngIf="control.errors"
     ><ng-container *ngFor="let error of control.errors | keyvalue">{{
-      errors.get(error.key) | translate
+      errors?.get(error.key) | translate
     }}</ng-container></mat-error
   >
 </mat-form-field>
