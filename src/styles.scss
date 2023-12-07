@@ -7,3 +7,16 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.snackbar-info {
+  background-color: grey;
+  color: black;
+}
+.snackbar-error {
+  background-color: red;
+  color: red;
+}
+
+.snackbar-warn {
+  background-color: yellow;
+}

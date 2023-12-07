@@ -9,11 +9,11 @@ import {
 } from '@angular/core';
 import { LightboxService } from './lightbox.component.service';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
-import { DestroyService } from 'src/app/common/services/common/destroy/destroy.service';
 import { filter, merge, takeUntil } from 'rxjs';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { isKeyPressed } from 'src/app/common/functions/keyboard';
 import { KeyboardKey } from 'src/app/common/enums/keyboard.keys';
+import { DestroyService } from 'src/app/common/services/destroy.service';
 
 @Component({
   selector: 'dft-lightbox',

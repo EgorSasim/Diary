@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  padding-top: 5%;
+}
+
+.dft-authentication-controls-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 2rem;
+  min-height: 14rem;
+  overflow: hidden;
+}
+
+.dft-authentication-control {
+  display: block;
+  width: 30rem;
+}

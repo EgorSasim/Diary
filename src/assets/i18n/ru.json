@@ -11,5 +11,6 @@
     "app.userName": "Имя",
     "app.create": "Создать",
     "app.requiredField": "Обязательное поле",
-    "app.selectLanguage": "Выбрать язык"
+    "app.selectLanguage": "Выбрать язык",
+    "app.invalidEmail": "Невалидное мыло"
 }

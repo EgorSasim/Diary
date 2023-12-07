@@ -1,6 +1,6 @@
 <mat-form-field>
   <mat-label>{{ "app.selectLanguage" | translate }}</mat-label>
-  <mat-select [value]="'en'" (selectionChange)="setLanguage($event.value)">
+  <mat-select (selectionChange)="setLanguage($event.value)">
     <mat-option value="en">{{ "app.enLang" | translate }}</mat-option>
     <mat-option value="ru">{{ "app.ruLang" | translate }}</mat-option>
   </mat-select>

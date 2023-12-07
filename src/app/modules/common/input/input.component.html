@@ -1,4 +1,4 @@
-<mat-form-field class="example-full-width">
+<mat-form-field class="dft-input">
   <mat-label>{{ label }}</mat-label>
   <input
     type="{{ type }}"
@@ -7,7 +7,9 @@
     placeholder="{{ placeholder }}"
   />
 
-  <mat-error *ngFor="let error of errors?.entries()">{{
-    error[1] | translate
-  }}</mat-error>
+  <mat-error *ngIf="control.errors"
+    ><ng-container *ngFor="let error of control.errors | keyvalue">{{
+      errors.get(error.key) | translate
+    }}</ng-container></mat-error
+  >
 </mat-form-field>

@@ -3,8 +3,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { takeUntil } from 'rxjs';
 import { AuthenticationService } from 'src/app/api/authentication/authentication.service';
+import {
+  INVALID_EMAIL_ERROR,
+  REQUIRED_FIELD_ERROR,
+} from 'src/app/common/constants/control-errors';
 import { ACCESS_TOKEN, REFRESH_TOKEN } from 'src/app/common/constants/tokens';
-import { DestroyService } from 'src/app/common/services/common/destroy/destroy.service';
+import { DestroyService } from 'src/app/common/services/destroy.service';
+import { SnackBarService } from 'src/app/common/services/snackbar.service';
 import {
   LogInForm,
   SignUpForm,
@@ -18,8 +23,10 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthenticationComponent {
-  public readonly requiredFieldError = new Map([
-    ['required', 'app.requiredField'],
+  public readonly requiredFieldError = REQUIRED_FIELD_ERROR;
+  public readonly requiredFieldAndEmailError = new Map([
+    ...REQUIRED_FIELD_ERROR.entries(),
+    ...INVALID_EMAIL_ERROR.entries(),
   ]);
 
   public logInForm: FormGroup<LogInForm> = new FormGroup({

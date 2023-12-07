@@ -1,55 +1,68 @@
 <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center">
   <mat-tab label="{{ 'app.logIn' | translate }}">
-    <dft-input
-      [type]="'email'"
-      [placeholder]="'app.email' | translate"
-      [label]="'app.email' | translate"
-      [control]="logInForm.controls['email']"
-    ></dft-input>
-    <dft-input
-      type="text"
-      [placeholder]="'app.password' | translate"
-      [label]="'app.password' | translate"
-      [control]="logInForm.controls['password']"
-      [errors]="requiredFieldError"
-    ></dft-input>
+    <div class="dft-authentication-controls-wrap">
+      <dft-input
+        class="dft-authentication-control"
+        [type]="'email'"
+        [placeholder]="'app.email' | translate"
+        [label]="'app.email' | translate"
+        [control]="logInForm.controls['email']"
+        [errors]="requiredFieldAndEmailError"
+      ></dft-input>
+      <dft-input
+        class="dft-authentication-control"
+        [type]="'password'"
+        [placeholder]="'app.password' | translate"
+        [label]="'app.password' | translate"
+        [control]="logInForm.controls['password']"
+        [errors]="requiredFieldError"
+      ></dft-input>
 
-    <button
-      mat-raised-button
-      color="primary"
-      [disabled]="logInForm.invalid"
-      (click)="logIn()"
-    >
-      {{ "app.logIn" | translate }}
-    </button>
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="logInForm.invalid"
+        (click)="logIn()"
+      >
+        {{ "app.logIn" | translate }}
+      </button>
+    </div>
   </mat-tab>
   <mat-tab label="{{ 'app.signUp' | translate }}">
-    <dft-input
-      [type]="'email'"
-      [placeholder]="'app.email' | translate"
-      [label]="'app.email' | translate"
-      [control]="signUpForm.controls['email']"
-    ></dft-input>
-    <dft-input
-      [type]="'password'"
-      [placeholder]="'app.password' | translate"
-      [label]="'app.password' | translate"
-      [control]="signUpForm.controls['password']"
-    ></dft-input>
-    <dft-input
-      [type]="'text'"
-      [placeholder]="'app.userName' | translate"
-      [label]="'app.userName' | translate"
-      [control]="signUpForm.controls['name']"
-    ></dft-input>
+    <div class="dft-authentication-controls-wrap">
+      <dft-input
+        class="dft-authentication-control"
+        [type]="'email'"
+        [placeholder]="'app.email' | translate"
+        [label]="'app.email' | translate"
+        [control]="signUpForm.controls['email']"
+        [errors]="requiredFieldAndEmailError"
+      ></dft-input>
+      <dft-input
+        class="dft-authentication-control"
+        [type]="'password'"
+        [placeholder]="'app.password' | translate"
+        [label]="'app.password' | translate"
+        [control]="signUpForm.controls['password']"
+        [errors]="requiredFieldError"
+      ></dft-input>
+      <dft-input
+        class="dft-authentication-control"
+        [type]="'text'"
+        [placeholder]="'app.userName' | translate"
+        [label]="'app.userName' | translate"
+        [control]="signUpForm.controls['name']"
+        [errors]="requiredFieldError"
+      ></dft-input>
 
-    <button
-      mat-raised-button
-      color="primary"
-      [disabled]="signUpForm.invalid"
-      (click)="signUp()"
-    >
-      {{ "app.signUp" | translate }}
-    </button></mat-tab
-  >
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="signUpForm.invalid"
+        (click)="signUp()"
+      >
+        {{ "app.signUp" | translate }}
+      </button>
+    </div>
+  </mat-tab>
 </mat-tab-group>

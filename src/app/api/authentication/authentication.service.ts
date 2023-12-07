@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { FormData } from 'src/app/api/common/form.typings';
 import { getServerUrl } from 'src/app/api/common/server/server.constants';
 import { ACCESS_TOKEN, REFRESH_TOKEN } from 'src/app/common/constants/tokens';
+import { SnackBarService } from 'src/app/common/services/snackbar.service';
 import {
   LogInForm,
   SignUpForm,

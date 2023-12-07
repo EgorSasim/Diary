@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { InputSize } from 'src/app/modules/common/input/input.typings';
 
 @Component({
   selector: 'dft-lang-selector',

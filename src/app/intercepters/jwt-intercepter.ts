@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import {
   HttpErrorResponse,
   HttpEvent,
@@ -10,12 +10,14 @@ import { Observable, catchError, switchMap, tap, throwError } from 'rxjs';
 import { ACCESS_TOKEN } from 'src/app/common/constants/tokens';
 import { AuthenticationService } from 'src/app/api/authentication/authentication.service';
 import { Router } from '@angular/router';
+import { SnackBarService } from 'src/app/common/services/snackbar.service';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
   constructor(
     private authenticationService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private snackBarService: SnackBarService
   ) {}
 
   public intercept(
@@ -23,11 +25,14 @@ export class JwtInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     request = this.addTokenToRequest(request);
-
     return next.handle(request).pipe(
       catchError((err: HttpErrorResponse) => {
         if (err.status === 401) {
-          alert('Invalid email or password');
+          this.snackBarService.showSnack(
+            'Invalid email or password!!!',
+            5000,
+            'error'
+          );
         } else if (
           err.status === 498 &&
           !request.url.includes('refresh-token')
@@ -44,7 +49,11 @@ export class JwtInterceptor implements HttpInterceptor {
           );
         }
         if (err.status === 409) {
-          alert('User with this email already exists!!!');
+          this.snackBarService.showSnack(
+            'User with this email already exists!!!',
+            5000,
+            'error'
+          );
         }
 
         this.router.navigate(['/login']);
