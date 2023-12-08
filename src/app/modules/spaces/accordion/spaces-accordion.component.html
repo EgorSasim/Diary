@@ -8,11 +8,49 @@
         <button mat-button (click)="addItem($event)">
           <mat-icon>add</mat-icon>
         </button>
-        <button mat-button (click)="editSpace($event)">
+        <button
+          mat-button
+          [cdkMenuTriggerFor]="menu"
+          (click)="stopPropagation($event)"
+        >
           <mat-icon>edit</mat-icon>
         </button>
+
+        <ng-template #menu>
+          <div
+            class="dft-spaces-accordion-item-menu"
+            cdkMenu
+            (click)="stopPropagation($event)"
+          >
+            <button
+              mat-raised-button
+              color="primary"
+              cdkMenuItem
+              (click)="showRenameSpaceModal(space)"
+            >
+              {{ "app.rename" | translate }}
+            </button>
+            <button
+              mat-raised-button
+              color="primary"
+              cdkMenuItem
+              (click)="removeSpace(space)"
+            >
+              {{ "app.remove" | translate }}
+            </button>
+          </div>
+        </ng-template>
       </mat-panel-description>
     </mat-expansion-panel-header>
     <p>This is the primary content of the panel.</p>
   </mat-expansion-panel>
 </mat-accordion>
+
+<dft-lightbox *ngIf="isLightboxVisible$ | async">
+  <dft-rename-space-modal
+    [space]="renamedSpace$ | async"
+    lightbox-body
+    (close)="hideRenameSpaceModal()"
+    (rename)="emitSpaceRename()"
+  ></dft-rename-space-modal>
+</dft-lightbox>

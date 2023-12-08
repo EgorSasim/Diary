@@ -13,5 +13,8 @@
     "app.create": "Создать",
     "app.requiredField": "Обязательное поле",
     "app.selectLanguage": "Выбрать язык",
-    "app.invalidEmail": "Невалидное мыло"
+    "app.invalidEmail": "Невалидное мыло",
+    "app.rename": "Переименовать",
+    "app.remove": "Удалить",
+    "app.save": "Сохранить"
 }

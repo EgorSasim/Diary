@@ -7,3 +7,15 @@
   display: flex;
   justify-content: right;
 }
+
+.spaces-accordion-item-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.dft-spaces-accordion-item-menu {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.2rem;
+  overflow: hidden;
+}

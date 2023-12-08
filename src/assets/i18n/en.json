@@ -13,5 +13,8 @@
     "app.create": "Create",
     "app.requiredField": "Required field",
     "app.selectLanguage": "Select language",
-    "app.invalidEmail": "Invalid email"
+    "app.invalidEmail": "Invalid email",
+    "app.rename": "Rename",
+    "app.remove": "Remove",
+    "app.save": "Save"
 }

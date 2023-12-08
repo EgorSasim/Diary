@@ -23,4 +23,13 @@ export class SpaceApiService {
       Space[]
     >;
   }
+
+  public removeSpace(space: Space): Observable<Object> {
+    return this.httpClient.delete(`${this.serverUrl}/space`, { body: space });
+  }
+
+  public renameSpace(space: Space): Observable<Object> {
+    console.log('rename space: ', space);
+    return this.httpClient.put(`${this.serverUrl}/space`, space);
+  }
 }
