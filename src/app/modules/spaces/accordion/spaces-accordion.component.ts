@@ -9,5 +9,8 @@ import { Space } from 'src/app/modules/spaces/create-space/create-space.typings'
 })
 export class SpacesAccrodionComponent {
   @Input() public spaces: Space[];
-  public panelOpenState = false;
+
+  public addItem(event: Event): void {
+    event.stopPropagation();
+  }
 }
