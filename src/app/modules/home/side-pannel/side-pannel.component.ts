@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable, tap } from 'rxjs';
+import { FormData } from 'src/app/api/common/form.typings';
 import { LightboxService } from 'src/app/modules/common/lightbox/lightbox.component.service';
 import { SidePannelService } from 'src/app/modules/home/side-pannel/side-pannel.service';
-import { Space } from 'src/app/modules/spaces/create-space/create-space.typings';
+import { Space } from 'src/app/modules/spaces/typings';
 
 @Component({
   selector: 'dft-side-pannel',

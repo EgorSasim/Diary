@@ -6,8 +6,10 @@ import {
 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { REQUIRED_FIELD_ERROR } from 'src/app/common/constants/control-errors';
+import { SnackBarService } from 'src/app/common/services/snackbar.service';
 import { CreateSpaceModalService } from 'src/app/modules/spaces/create-space/create-space-modal.service';
-import { Space } from 'src/app/modules/spaces/create-space/create-space.typings';
+import { CreateSpace } from 'src/app/modules/spaces/create-space/create-space.typings';
+import { Space } from 'src/app/modules/spaces/typings';
 
 @Component({
   selector: 'dft-create-space-modal',
@@ -22,11 +24,14 @@ export class CreateSpaceModalComponent {
 
   public readonly requiredFieldError = REQUIRED_FIELD_ERROR;
 
-  public formGroup: FormGroup<Space> = new FormGroup({
+  public formGroup: FormGroup<CreateSpace> = new FormGroup({
     title: new FormControl(null, Validators.required),
   });
 
-  constructor(private createSpaceModalService: CreateSpaceModalService) {}
+  constructor(
+    private createSpaceModalService: CreateSpaceModalService,
+    private snackBarService: SnackBarService
+  ) {}
 
   public closeModal(): void {
     this.close.emit();
@@ -41,7 +46,7 @@ export class CreateSpaceModalComponent {
           this.closeModal();
         },
         error: () => {
-          console.log('error occured');
+          this.snackBarService.showSnack('error occured', 5000, 'error');
         },
       });
   }

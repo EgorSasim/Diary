@@ -1,4 +1,9 @@
-.dft-space-accordion-description {
+.dft-space-accordion-title {
+  width: 20%;
+  overflow: hidden;
+}
+
+.dft-space-accordion-controls {
   display: flex;
   justify-content: right;
 }

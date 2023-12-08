@@ -1,5 +1,5 @@
 import { FormControl } from '@angular/forms';
 
-export interface Space {
+export interface CreateSpace {
   title: FormControl<string>;
 }

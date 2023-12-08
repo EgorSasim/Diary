@@ -1,12 +1,15 @@
 <mat-accordion>
   <mat-expansion-panel *ngFor="let space of spaces" hideToggle>
     <mat-expansion-panel-header>
-      <mat-panel-title>
+      <mat-panel-title class="dft-space-accordion-title">
         {{ space.title }}
       </mat-panel-title>
-      <mat-panel-description class="dft-space-accordion-description">
+      <mat-panel-description class="dft-space-accordion-controls">
         <button mat-button (click)="addItem($event)">
           <mat-icon>add</mat-icon>
+        </button>
+        <button mat-button (click)="editSpace($event)">
+          <mat-icon>edit</mat-icon>
         </button>
       </mat-panel-description>
     </mat-expansion-panel-header>
