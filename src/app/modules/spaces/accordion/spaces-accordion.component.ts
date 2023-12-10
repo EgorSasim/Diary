@@ -3,10 +3,13 @@ import {
   Component,
   EventEmitter,
   Input,
+  OnChanges,
+  OnInit,
   Output,
 } from '@angular/core';
-import { BehaviorSubject, ReplaySubject } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject, tap } from 'rxjs';
 import { LightboxService } from 'src/app/modules/common/lightbox/lightbox.component.service';
+import { List } from 'src/app/modules/lists/lists.typings';
 import { SpacesAccordionService } from 'src/app/modules/spaces/accordion/spaces-accordion.service';
 import { Space } from 'src/app/modules/spaces/typings';
 @Component({
@@ -16,8 +19,9 @@ import { Space } from 'src/app/modules/spaces/typings';
   providers: [SpacesAccordionService, LightboxService],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SpacesAccrodionComponent {
+export class SpacesAccrodionComponent implements OnChanges {
   @Input() public spaces: Space[];
+  @Input() public lists: List[];
   @Output() public spaceRemove: EventEmitter<void> = new EventEmitter();
   @Output() public spaceRename: EventEmitter<void> = new EventEmitter();
   @Output() public listCreate: EventEmitter<void> = new EventEmitter();
@@ -25,11 +29,23 @@ export class SpacesAccrodionComponent {
   public renameSpace$: BehaviorSubject<boolean> = new BehaviorSubject(false);
   public createList$: BehaviorSubject<boolean> = new BehaviorSubject(false);
   public selectedSpace$: ReplaySubject<Space> = new ReplaySubject(1);
+  public spaceIdToListMap = new Map();
 
   constructor(
     private spacesAccordionService: SpacesAccordionService,
     private ligthboxService: LightboxService
   ) {}
+
+  public ngOnChanges(): void {
+    console.log(this.lists);
+    this.spaces.forEach((space) =>
+      this.spaceIdToListMap.set(
+        space.id,
+        this.lists.filter((list) => list.spaceId === space.id)
+      )
+    );
+    console.log(this.spaceIdToListMap);
+  }
 
   public addItem(event: Event): void {
     this.stopPropagation(event);

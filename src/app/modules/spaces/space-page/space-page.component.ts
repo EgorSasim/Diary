@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, filter, map, switchMap, takeUntil, tap } from 'rxjs';
 import { DestroyService } from 'src/app/common/services/destroy.service';
 import { RefreshDataService } from 'src/app/common/services/refreshData.service';
@@ -22,7 +22,8 @@ export class SpacePageComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private spacePageService: SpacePageService,
     private destroyService: DestroyService,
-    private refreshDataService: RefreshDataService
+    private refreshDataService: RefreshDataService,
+    private router: Router
   ) {}
 
   public ngOnInit(): void {
@@ -32,6 +33,11 @@ export class SpacePageComponent implements OnInit {
         tap((id) => (this.id = id)),
         switchMap((id) =>
           this.spacePageService.getSpace(id).pipe(
+            tap((space) => {
+              if (!space) {
+                this.router.navigate(['/home']);
+              }
+            }),
             filter((space) => !!space),
             tap((space) => this.space$.next(space)),
             switchMap((space) => this.spacePageService.getLists(space.id))
@@ -47,6 +53,11 @@ export class SpacePageComponent implements OnInit {
       .pipe(
         switchMap(() =>
           this.spacePageService.getSpace(this.id).pipe(
+            tap((space) => {
+              if (!space) {
+                this.router.navigate(['/home']);
+              }
+            }),
             filter((space) => !!space),
             tap((space) => {
               this.space$.next(space);

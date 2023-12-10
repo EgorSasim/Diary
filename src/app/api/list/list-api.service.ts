@@ -35,4 +35,10 @@ export class ListApiService {
   public renameList(list: List, spaceId: number): Observable<Object> {
     return this.httpClient.put(`${this.serverUrl}/list`, { list, spaceId });
   }
+
+  public getAllLists(): Observable<List[]> {
+    return this.httpClient.get(`${this.serverUrl}/all-lists`) as Observable<
+      List[]
+    >;
+  }
 }

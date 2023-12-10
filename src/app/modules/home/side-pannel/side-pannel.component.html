@@ -3,6 +3,7 @@
     <p>{{ "app.spaces" | translate }}</p>
     <dft-spaces-accordion
       [spaces]="spaces$ | async"
+      [lists]="lists$ | async"
       (spaceRename)="refreshData()"
       (spaceRemove)="refreshData()"
       (listCreate)="refreshData()"
