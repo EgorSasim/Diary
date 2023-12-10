@@ -2,7 +2,13 @@
   <mat-expansion-panel *ngFor="let space of spaces" hideToggle>
     <mat-expansion-panel-header>
       <mat-panel-title class="dft-space-accordion-title">
-        {{ space.title }}
+        <a
+          class="dft-space-accordion-link"
+          (click)="stopPropagation($event)"
+          [routerLink]="['space', space.id]"
+        >
+          {{ space.title }}</a
+        >
       </mat-panel-title>
       <mat-panel-description class="dft-space-accordion-controls">
         <button

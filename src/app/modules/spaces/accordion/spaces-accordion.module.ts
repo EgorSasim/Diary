@@ -11,6 +11,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { LightboxModule } from 'src/app/modules/common/lightbox/lightbox.module';
 import { RenameSpaceModalModule } from 'src/app/modules/spaces/rename-space-modal/rename-space-modal.module';
 import { CreateListModalModule } from 'src/app/modules/lists/create-list/create-list-modal.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [SpacesAccrodionComponent],
@@ -26,6 +27,7 @@ import { CreateListModalModule } from 'src/app/modules/lists/create-list/create-
     LightboxModule,
     RenameSpaceModalModule,
     CreateListModalModule,
+    RouterModule,
   ],
   exports: [SpacesAccrodionComponent],
 })

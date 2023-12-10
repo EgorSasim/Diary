@@ -19,3 +19,12 @@
   border-radius: 0.2rem;
   overflow: hidden;
 }
+
+.dft-space-accordion-link {
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

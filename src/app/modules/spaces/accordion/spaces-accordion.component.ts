@@ -42,7 +42,6 @@ export class SpacesAccrodionComponent {
   }
 
   public showCreateListModal(space: Space): void {
-    console.log('showCreateListModal');
     this.createList$.next(true);
     this.selectedSpace$.next(space);
     this.ligthboxService.showLightbox();

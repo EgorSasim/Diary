@@ -1,0 +1,21 @@
+.dft-space-page {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.dft-space-page-list-item {
+  display: flex;
+  ::ng-deep {
+    .mdc-list-item__content {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+.dft-space-page-list-item-title {
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}

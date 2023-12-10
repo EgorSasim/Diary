@@ -21,7 +21,9 @@ export class ListApiService {
   }
 
   public getLists(spaceId: number): Observable<List[]> {
-    return this.httpClient.get(`${this.serverUrl}/lists`) as Observable<List[]>;
+    return this.httpClient.get(`${this.serverUrl}/lists`, {
+      params: { spaceId },
+    }) as Observable<List[]>;
   }
 
   public removeList(list: List, spaceId: number): Observable<Object> {

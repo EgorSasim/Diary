@@ -1,11 +1,11 @@
-<mat-drawer-container class="dft-side-pannel" autosize>
+<mat-drawer-container class="dft-side-pannel">
   <mat-drawer #drawer class="dft-side-pannel-content" mode="side">
     <p>{{ "app.spaces" | translate }}</p>
     <dft-spaces-accordion
       [spaces]="spaces$ | async"
-      (spaceRename)="refreshSpaces()"
-      (spaceRemove)="refreshSpaces()"
-      (listCreate)="refreshSpaces()"
+      (spaceRename)="refreshData()"
+      (spaceRemove)="refreshData()"
+      (listCreate)="refreshData()"
     ></dft-spaces-accordion>
     <div class="dft-side-pannel-create-space">
       <button
@@ -27,6 +27,7 @@
     >
       <mat-icon>menu</mat-icon>
     </button>
+    <ng-content select="[side-content]"></ng-content>
   </div>
 </mat-drawer-container>
 
@@ -34,6 +35,6 @@
   <dft-create-space-modal
     lightbox-body
     (close)="hideCreateSpaceLightbox()"
-    (create)="refreshSpaces()"
+    (create)="refreshData()"
   ></dft-create-space-modal>
 </dft-lightbox>

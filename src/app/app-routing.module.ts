@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './modules/home/home-page/home-page.component';
 import { AuthenticationComponent } from 'src/app/modules/authentication/authentication.component';
 import { authGuard } from 'src/app/guards/authentication.guard';
+import { SpacePageComponent } from 'src/app/modules/spaces/space-page/space-page.component';
 
 const routes: Routes = [
   {
@@ -21,11 +22,18 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomePageComponent,
-    loadChildren: () =>
-      import('../app/modules/home/home-page/home-page.module').then(
-        (m) => m.HomePageModule
-      ),
     canActivate: [authGuard],
+
+    children: [
+      {
+        path: 'space/:id',
+        component: SpacePageComponent,
+        loadChildren: () =>
+          import('../app/modules/spaces/space-page/space-page.module').then(
+            (m) => m.SpacePageModule
+          ),
+      },
+    ],
   },
 ];
 

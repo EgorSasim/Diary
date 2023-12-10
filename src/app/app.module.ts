@@ -1,47 +1,15 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {
-  HTTP_INTERCEPTORS,
-  HttpClient,
-  HttpClientModule,
-} from '@angular/common/http';
-import { AuthenticationModule } from 'src/app/modules/authentication/authentication.module';
-import { JwtInterceptor } from 'src/app/intercepters/jwt-intercepter';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { LangSelectorModule } from 'src/app/modules/common/lang-selector/lang-selector.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateModule } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
+import { SharedModule } from 'src/app/shared.module';
+import { HomePageModule } from 'src/app/modules/home/home-page/home-page.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    AuthenticationModule,
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient],
-      },
-    }),
-    LangSelectorModule,
-    BrowserAnimationsModule,
-  ],
+  imports: [SharedModule],
   exports: [TranslateModule],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    MatSnackBar,
-  ],
+  providers: [MatSnackBar],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

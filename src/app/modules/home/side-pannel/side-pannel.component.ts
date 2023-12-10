@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Observable, tap } from 'rxjs';
-import { FormData } from 'src/app/api/common/form.typings';
+import { Observable } from 'rxjs';
+import { RefreshDataService } from 'src/app/common/services/refreshData.service';
 import { LightboxService } from 'src/app/modules/common/lightbox/lightbox.component.service';
 import { SidePannelService } from 'src/app/modules/home/side-pannel/side-pannel.service';
 import { Space } from 'src/app/modules/spaces/typings';
@@ -19,7 +19,8 @@ export class SidePannelComponent implements OnInit {
 
   constructor(
     private ligthboxService: LightboxService,
-    private sidePannelService: SidePannelService
+    private sidePannelService: SidePannelService,
+    private refreshDataService: RefreshDataService
   ) {}
 
   public ngOnInit(): void {
@@ -34,7 +35,7 @@ export class SidePannelComponent implements OnInit {
     this.ligthboxService.hideLightbox();
   }
 
-  public refreshSpaces(): void {
-    this.spaces$ = this.sidePannelService.getSpaces();
+  public refreshData(): void {
+    this.refreshDataService.refreshData();
   }
 }

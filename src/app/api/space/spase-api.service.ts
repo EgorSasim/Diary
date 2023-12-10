@@ -18,6 +18,12 @@ export class SpaceApiService {
     }) as Observable<Space>;
   }
 
+  public getSpace(id: number): Observable<Space> {
+    return this.httpClient.get(
+      `${this.serverUrl}/space/${id}`
+    ) as Observable<Space>;
+  }
+
   public getSpaces(): Observable<Space[]> {
     return this.httpClient.get(`${this.serverUrl}/spaces`) as Observable<
       Space[]

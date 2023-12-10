@@ -2,6 +2,7 @@
     "app.createSpace": "Создать пространство",
     "app.newSpace": "Новое пространство",
     "app.spaces": "Пространства",
+    "app.space": "Пространство",
     "app.provideSpaceName": "Введите название пространства",
     "app.enLang": "Английский",
     "app.ruLang": "Русский",
@@ -18,6 +19,7 @@
     "app.remove": "Удалить",
     "app.save": "Сохранить",
     "app.list": "Список",
+    "app.lists": "Списки",
     "app.note": "Заметка",
     "app.createList": "Создать список",
     "app.provideListName": "Введите название списка "

@@ -2,6 +2,7 @@
     "app.createSpace": "Create space",
     "app.newSpace": "New space",
     "app.spaces": "Spaces",
+    "app.space": "Space",
     "app.provideSpaceName": "Provide space name",
     "app.enLang": "English",
     "app.ruLang": "Russian",
@@ -18,6 +19,7 @@
     "app.remove": "Remove",
     "app.save": "Save",
     "app.list": "List",
+    "app.lists": "Lists",
     "app.note": "Note",
     "app.createList": "Create list",
     "app.provideListName": "Provide list name"
