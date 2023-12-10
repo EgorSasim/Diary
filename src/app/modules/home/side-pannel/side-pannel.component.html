@@ -5,6 +5,7 @@
       [spaces]="spaces$ | async"
       (spaceRename)="refreshSpaces()"
       (spaceRemove)="refreshSpaces()"
+      (listCreate)="refreshSpaces()"
     ></dft-spaces-accordion>
     <div class="dft-side-pannel-create-space">
       <button

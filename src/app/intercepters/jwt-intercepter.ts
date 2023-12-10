@@ -27,6 +27,9 @@ export class JwtInterceptor implements HttpInterceptor {
     request = this.addTokenToRequest(request);
     return next.handle(request).pipe(
       catchError((err: HttpErrorResponse) => {
+        if (err.status === 404) {
+          this.snackBarService.showSnack('Not found error!!!', 5000, 'error');
+        }
         if (err.status === 401) {
           this.snackBarService.showSnack(
             'Invalid email or password!!!',

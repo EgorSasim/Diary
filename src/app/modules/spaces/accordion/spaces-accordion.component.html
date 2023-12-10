@@ -5,18 +5,42 @@
         {{ space.title }}
       </mat-panel-title>
       <mat-panel-description class="dft-space-accordion-controls">
-        <button mat-button (click)="addItem($event)">
-          <mat-icon>add</mat-icon>
-        </button>
         <button
           mat-button
-          [cdkMenuTriggerFor]="menu"
+          [cdkMenuTriggerFor]="addItemMenu"
+          (click)="stopPropagation($event)"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+        <ng-template #addItemMenu>
+          <div
+            class="dft-spaces-accordion-item-menu"
+            cdkMenu
+            (click)="stopPropagation($event)"
+          >
+            <button
+              mat-raised-button
+              color="primary"
+              cdkMenuItem
+              (click)="showCreateListModal(space)"
+            >
+              {{ "app.list" | translate }}
+            </button>
+            <button mat-raised-button color="primary" cdkMenuItem>
+              {{ "app.note" | translate }}
+            </button>
+          </div>
+        </ng-template>
+
+        <button
+          mat-button
+          [cdkMenuTriggerFor]="editMenu"
           (click)="stopPropagation($event)"
         >
           <mat-icon>edit</mat-icon>
         </button>
 
-        <ng-template #menu>
+        <ng-template #editMenu>
           <div
             class="dft-spaces-accordion-item-menu"
             cdkMenu
@@ -48,9 +72,18 @@
 
 <dft-lightbox *ngIf="isLightboxVisible$ | async">
   <dft-rename-space-modal
-    [space]="renamedSpace$ | async"
+    *ngIf="renameSpace$ | async"
+    [space]="selectedSpace$ | async"
     lightbox-body
-    (close)="hideRenameSpaceModal()"
+    (close)="hideModal()"
     (rename)="emitSpaceRename()"
   ></dft-rename-space-modal>
+
+  <dft-create-list-modal
+    *ngIf="createList$ | async"
+    lightbox-body
+    [spaceId]="(selectedSpace$ | async).id"
+    (close)="hideModal()"
+    (create)="emitListCreate()"
+  ></dft-create-list-modal>
 </dft-lightbox>

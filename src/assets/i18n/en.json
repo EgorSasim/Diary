@@ -16,5 +16,9 @@
     "app.invalidEmail": "Invalid email",
     "app.rename": "Rename",
     "app.remove": "Remove",
-    "app.save": "Save"
+    "app.save": "Save",
+    "app.list": "List",
+    "app.note": "Note",
+    "app.createList": "Create list",
+    "app.provideListName": "Provide list name"
 }

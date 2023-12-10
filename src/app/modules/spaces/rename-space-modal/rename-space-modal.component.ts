@@ -27,9 +27,7 @@ export class RenameSpaceModalComponent implements OnInit {
 
   public readonly requiredFieldError = REQUIRED_FIELD_ERROR;
 
-  public formGroup: FormGroup<CreateSpace> = new FormGroup({
-    title: new FormControl(null, Validators.required),
-  });
+  public formGroup: FormGroup<CreateSpace>;
 
   constructor(
     private renameSpaceModalService: RenameSpaceModalService,
@@ -37,8 +35,11 @@ export class RenameSpaceModalComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    console.log('on init space: ', this.space);
+    this.formGroup = new FormGroup({
+      title: new FormControl(this.space.title, Validators.required),
+    });
   }
+
   public closeModal(): void {
     this.close.emit();
   }

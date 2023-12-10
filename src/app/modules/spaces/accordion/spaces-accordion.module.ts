@@ -10,6 +10,7 @@ import { MatListModule } from '@angular/material/list';
 import { TranslateModule } from '@ngx-translate/core';
 import { LightboxModule } from 'src/app/modules/common/lightbox/lightbox.module';
 import { RenameSpaceModalModule } from 'src/app/modules/spaces/rename-space-modal/rename-space-modal.module';
+import { CreateListModalModule } from 'src/app/modules/lists/create-list/create-list-modal.module';
 
 @NgModule({
   declarations: [SpacesAccrodionComponent],
@@ -24,6 +25,7 @@ import { RenameSpaceModalModule } from 'src/app/modules/spaces/rename-space-moda
     TranslateModule,
     LightboxModule,
     RenameSpaceModalModule,
+    CreateListModalModule,
   ],
   exports: [SpacesAccrodionComponent],
 })

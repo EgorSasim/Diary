@@ -2,7 +2,7 @@
     "app.createSpace": "Создать пространство",
     "app.newSpace": "Новое пространство",
     "app.spaces": "Пространства",
-    "app.provideSpaceName": "Введите имя пространства",
+    "app.provideSpaceName": "Введите название пространства",
     "app.enLang": "Английский",
     "app.ruLang": "Русский",
     "app.signUp": "Зарегистрироваться",
@@ -16,5 +16,10 @@
     "app.invalidEmail": "Невалидное мыло",
     "app.rename": "Переименовать",
     "app.remove": "Удалить",
-    "app.save": "Сохранить"
+    "app.save": "Сохранить",
+    "app.list": "Список",
+    "app.note": "Заметка",
+    "app.createList": "Создать список",
+    "app.provideListName": "Введите название списка "
+
 }
