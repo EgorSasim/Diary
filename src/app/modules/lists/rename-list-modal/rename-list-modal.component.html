@@ -1,0 +1,34 @@
+<div class="dft-rename-list-modal">
+  <button
+    mat-icon-button
+    class="dft-rename-list-modal-close"
+    color="accent"
+    (click)="closeModal()"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+  <mat-card class="dft-rename-list-modal-content">
+    <mat-card-title class="dft-rename-list-modal-content__item">
+      {{ "app.list.rename" | translate }}
+    </mat-card-title>
+    <mat-card-content class="dft-rename-list-modal-content__item"
+      ><dft-input
+        [type]="'text'"
+        [placeholder]="'app.provideSpaceName' | translate"
+        [label]="'app.provideSpaceName' | translate"
+        [control]="formGroup.controls['title']"
+        [errors]="requiredFieldError"
+      ></dft-input>
+    </mat-card-content>
+    <mat-card-actions class="dft-rename-list-modal-content__item">
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="formGroup.controls['title'].invalid"
+        (click)="renameList()"
+      >
+        {{ "app.save" | translate }}
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

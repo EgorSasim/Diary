@@ -1,27 +1,89 @@
 <div class="dft-space-page">
-  <h1 *ngIf="space$ | async as space">
-    {{ "app.space" | translate }} <i>{{ space.title }}</i>
-  </h1>
+  <ng-container *ngIf="space$ | async as space">
+    <h1>
+      {{ "app.space" | translate }} <i>{{ space.title }}</i>
+    </h1>
 
-  <p *ngFor="">
-    {{ list.title }}
-  </p>
+    <mat-list>
+      <div mat-subheader>{{ "app.lists" | translate }}:</div>
+      <mat-list-item
+        *ngFor="let list of lists$ | async"
+        class="dft-space-page-list-item"
+      >
+        <mat-icon matListItemIcon>list</mat-icon>
+        <div matListItemTitle class="dft-space-page-list-item-title">
+          {{ list.title }}
+        </div>
 
-  <mat-list>
-    <div mat-subheader>{{ "app.lists" | translate }}:</div>
-    <mat-list-item
-      *ngFor="let list of lists$ | async"
-      class="dft-space-page-list-item"
-    >
-      <mat-icon matListItemIcon>list</mat-icon>
-      <div matListItemTitle class="dft-space-page-list-item-title">
-        {{ list.title }}
-      </div>
-      <button mat-raised-button color="primary">
-        <mat-icon>edit</mat-icon>
-      </button>
-    </mat-list-item>
-    <mat-divider></mat-divider>
-    <div mat-subheader>Folders:</div>
-  </mat-list>
+        <button
+          mat-raised-button
+          color="primary"
+          [cdkMenuTriggerFor]="editMenu"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+
+        <ng-template #editMenu>
+          <div class="dftitem-space-page-list-menu" cdkMenu>
+            <button
+              mat-raised-button
+              color="primary"
+              cdkMenuItem
+              (click)="showRenameListModal(list)"
+            >
+              {{ "app.rename" | translate }}
+            </button>
+            <button
+              mat-raised-button
+              color="primary"
+              cdkMenuItem
+              (click)="removeList(list)"
+            >
+              {{ "app.remove" | translate }}
+            </button>
+          </div>
+        </ng-template>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <div mat-subheader>{{ "app.notes" | translate }}:</div>
+      <mat-list-item
+        *ngFor="let note of notes$ | async"
+        class="dft-space-page-list-item"
+      >
+        <mat-icon matListItemIcon>list</mat-icon>
+        <div matListItemTitle class="dft-space-page-list-item-title">
+          {{ list.title }}
+        </div>
+
+        <button
+          mat-raised-button
+          color="primary"
+          [cdkMenuTriggerFor]="editNoteMenu"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+
+        <ng-template #editNoteMenu>
+          <div class="dftitem-space-page-list-menu" cdkMenu>
+            <button mat-raised-button color="primary" cdkMenuItem>
+              {{ "app.rename" | translate }}
+            </button>
+            <button mat-raised-button color="primary" cdkMenuItem>
+              {{ "app.remove" | translate }}
+            </button>
+          </div>
+        </ng-template>
+      </mat-list-item>
+    </mat-list>
+  </ng-container>
 </div>
+
+<dft-lightbox class="space-page-rename-list" *ngIf="renameListModal$ | async">
+  <div>Heheheh</div>
+  <dft-rename-list-modal
+    lightbox-body
+    [list]="selectedList$ | async"
+    (rename)="refreshData()"
+    (close)="closeModal()"
+  ></dft-rename-list-modal>
+</dft-lightbox>

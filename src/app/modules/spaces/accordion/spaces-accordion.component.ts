@@ -37,14 +37,12 @@ export class SpacesAccrodionComponent implements OnChanges {
   ) {}
 
   public ngOnChanges(): void {
-    console.log(this.lists);
     this.spaces.forEach((space) =>
       this.spaceIdToListMap.set(
         space.id,
         this.lists.filter((list) => list.spaceId === space.id)
       )
     );
-    console.log(this.spaceIdToListMap);
   }
 
   public addItem(event: Event): void {

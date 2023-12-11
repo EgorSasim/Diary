@@ -22,6 +22,7 @@
     "app.lists": "Списки",
     "app.note": "Заметка",
     "app.createList": "Создать список",
-    "app.provideListName": "Введите название списка "
-
+    "app.provideListName": "Введите название списка",
+    "app.notes": "Записки",
+    "app.list.rename": "Переименовать список"
 }

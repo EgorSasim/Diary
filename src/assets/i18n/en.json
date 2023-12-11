@@ -22,5 +22,7 @@
     "app.lists": "Lists",
     "app.note": "Note",
     "app.createList": "Create list",
-    "app.provideListName": "Provide list name"
+    "app.provideListName": "Provide list name",
+    "app.notes": "Notes",
+    "app.list.rename": "Rename list"
 }

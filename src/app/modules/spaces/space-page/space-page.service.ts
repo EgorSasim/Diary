@@ -19,4 +19,8 @@ export class SpacePageService {
   public getLists(spaceId: number): Observable<List[]> {
     return this.listApiService.getLists(spaceId);
   }
+
+  public removeList(listId: number, spaceId: number): Observable<Object> {
+    return this.listApiService.removeList(listId, spaceId);
+  }
 }

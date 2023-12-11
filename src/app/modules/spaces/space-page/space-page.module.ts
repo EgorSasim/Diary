@@ -6,6 +6,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatButtonModule } from '@angular/material/button';
+import { CdkMenuModule } from '@angular/cdk/menu';
+import { LightboxModule } from 'src/app/modules/common/lightbox/lightbox.module';
+import { RenameListModalModule } from 'src/app/modules/lists/rename-list-modal/rename-list-modal.module';
 
 @NgModule({
   declarations: [SpacePageComponent],
@@ -16,6 +19,9 @@ import { MatButtonModule } from '@angular/material/button';
     MatListModule,
     TranslateModule,
     MatButtonModule,
+    CdkMenuModule,
+    RenameListModalModule,
+    LightboxModule,
   ],
   exports: [SpacePageComponent],
 })

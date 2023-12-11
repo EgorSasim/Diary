@@ -26,19 +26,13 @@ export class ListApiService {
     }) as Observable<List[]>;
   }
 
-  public removeList(list: List, spaceId: number): Observable<Object> {
+  public removeList(listId: List['id'], spaceId: number): Observable<Object> {
     return this.httpClient.delete(`${this.serverUrl}/list`, {
-      body: { list, spaceId },
+      body: { listId, spaceId },
     });
   }
 
-  public renameList(list: List, spaceId: number): Observable<Object> {
-    return this.httpClient.put(`${this.serverUrl}/list`, { list, spaceId });
-  }
-
-  public getAllLists(): Observable<List[]> {
-    return this.httpClient.get(`${this.serverUrl}/all-lists`) as Observable<
-      List[]
-    >;
+  public renameList(list: List): Observable<Object> {
+    return this.httpClient.put(`${this.serverUrl}/list`, list);
   }
 }
