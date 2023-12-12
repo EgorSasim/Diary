@@ -1,0 +1,18 @@
+<header class="empty-page-title">
+  {{ "app.welcome" | translate : (userName$ | async) }}
+</header>
+
+<main>
+  <title>Click here to create your working space</title>
+  <button mat-raised-button color="primary" (click)="showCreateSpaceModal()">
+    {{ "app.createSpace" | translate }}
+  </button>
+</main>
+
+<dft-lightbox *ngIf="isLightboxVisible$ | async">
+  <dft-create-space-modal
+    lightbox-body
+    (close)="closeModal()"
+    (create)="refreshData($event)"
+  ></dft-create-space-modal>
+</dft-lightbox>

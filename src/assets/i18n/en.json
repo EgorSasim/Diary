@@ -24,5 +24,6 @@
     "app.createList": "Create list",
     "app.provideListName": "Provide list name",
     "app.notes": "Notes",
-    "app.list.rename": "Rename list"
+    "app.list.rename": "Rename list",
+    "app.welcome": "Welcome to Diary and Finances tracker app, {{name}}!!!"
 }

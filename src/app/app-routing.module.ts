@@ -4,6 +4,7 @@ import { HomePageComponent } from './modules/home/home-page/home-page.component'
 import { AuthenticationComponent } from 'src/app/modules/authentication/authentication.component';
 import { authGuard } from 'src/app/guards/authentication.guard';
 import { SpacePageComponent } from 'src/app/modules/spaces/space-page/space-page.component';
+import { EmptyPageComponent } from 'src/app/modules/empty-page/empty-page.component';
 
 const routes: Routes = [
   {
@@ -19,12 +20,22 @@ const routes: Routes = [
         (m) => m.AuthenticationModule
       ),
   },
+
   {
     path: 'home',
     component: HomePageComponent,
     canActivate: [authGuard],
+    canActivateChild: [authGuard],
 
     children: [
+      {
+        path: 'empty-page',
+        component: EmptyPageComponent,
+        loadChildren: () =>
+          import('../app/modules/empty-page/empty-page.module').then(
+            (m) => m.EmptyPageModule
+          ),
+      },
       {
         path: 'space/:id',
         component: SpacePageComponent,

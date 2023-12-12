@@ -20,7 +20,6 @@ import { SpacesAccrodionModule } from 'src/app/modules/spaces/accordion/spaces-a
     MatButtonModule,
     MatIconModule,
     SpacesAccrodionModule,
-    TranslateModule,
   ],
   exports: [SidePannelComponent],
 })

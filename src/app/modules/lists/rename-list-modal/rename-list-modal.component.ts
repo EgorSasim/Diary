@@ -35,7 +35,6 @@ export class RenameListModalComponent {
   ) {}
 
   public ngOnInit(): void {
-    console.log('init compoennt');
     this.formGroup = new FormGroup({
       title: new FormControl(this.list.title, Validators.required),
     });
