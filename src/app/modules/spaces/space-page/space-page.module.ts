@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { CdkMenuModule } from '@angular/cdk/menu';
 import { LightboxModule } from 'src/app/modules/common/lightbox/lightbox.module';
 import { RenameListModalModule } from 'src/app/modules/lists/rename-list-modal/rename-list-modal.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [SpacePageComponent],
@@ -22,6 +23,7 @@ import { RenameListModalModule } from 'src/app/modules/lists/rename-list-modal/r
     CdkMenuModule,
     RenameListModalModule,
     LightboxModule,
+    RouterModule,
   ],
   exports: [SpacePageComponent],
 })

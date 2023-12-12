@@ -5,6 +5,7 @@ import { AuthenticationComponent } from 'src/app/modules/authentication/authenti
 import { authGuard } from 'src/app/guards/authentication.guard';
 import { SpacePageComponent } from 'src/app/modules/spaces/space-page/space-page.component';
 import { EmptyPageComponent } from 'src/app/modules/empty-page/empty-page.component';
+import { ListPageComponent } from 'src/app/modules/lists/list-page/list-page.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,14 @@ const routes: Routes = [
         loadChildren: () =>
           import('../app/modules/spaces/space-page/space-page.module').then(
             (m) => m.SpacePageModule
+          ),
+      },
+      {
+        path: 'list/:id',
+        component: ListPageComponent,
+        loadChildren: () =>
+          import('../app/modules/lists/list-page/list-page.module').then(
+            (m) => m.ListPageModule
           ),
       },
     ],

@@ -20,6 +20,12 @@ export class ListApiService {
     }) as Observable<List>;
   }
 
+  public getList(id: number): Observable<List> {
+    return this.httpClient.get(
+      `${this.serverUrl}/list/${id}`
+    ) as Observable<List>;
+  }
+
   public getLists(spaceId: number): Observable<List[]> {
     return this.httpClient.get(`${this.serverUrl}/lists`, {
       params: { spaceId },
