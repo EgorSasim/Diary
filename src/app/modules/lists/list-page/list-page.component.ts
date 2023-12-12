@@ -46,6 +46,22 @@ export class ListPageComponent implements OnInit {
     this.refreshDataService.refreshData();
   }
 
+  public removeTask(taskId: number): void {
+    this.listPageService
+      .removeTask(taskId, this.list$.value.id, this.list$.value.spaceId)
+      .subscribe(() => this.refreshDataService.refreshData());
+  }
+
+  public toggleTaskState(task: Task): void {
+    this.listPageService
+      .updateTaskState({
+        task: task,
+        listId: this.list$.value.id,
+        spaceId: this.list$.value.spaceId,
+      })
+      .subscribe(() => this.refreshDataService.refreshData());
+  }
+
   private trackRouteParams(): void {
     this.activatedRoute.params
       .pipe(
@@ -70,7 +86,7 @@ export class ListPageComponent implements OnInit {
   private trackRefreshParams(): void {
     this.refreshDataService.areRefreshed$
       .pipe(
-        switchMap((id) => this.listPageService.getList(this.id)),
+        switchMap(() => this.listPageService.getList(this.id)),
         tap((list) => {
           if (!list) {
             this.router.navigate['/home'];

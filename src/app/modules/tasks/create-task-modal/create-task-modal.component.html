@@ -35,11 +35,9 @@
           ></textarea>
         </mat-form-field>
         <mat-card-content>
-          <label for="">Completed:</label>
-          <input
-            [type]="'checkbox'"
-            [formControl]="formGroup.controls['completed']"
-          />
+          <mat-checkbox [formControl]="formGroup.controls['completed']">{{
+            "app.task.completed" | translate
+          }}</mat-checkbox>
         </mat-card-content>
       </section>
       <section class="create-task-moda-inputs-section">
@@ -49,6 +47,7 @@
             matInput
             [formControl]="formGroup.controls['startTime']"
             [matDatepicker]="startTimepicker"
+            [readonly]="true"
           />
           <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle
@@ -63,6 +62,7 @@
             matInput
             [formControl]="formGroup.controls['endTime']"
             [matDatepicker]="endTimePicker"
+            [readonly]="true"
           />
           <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle

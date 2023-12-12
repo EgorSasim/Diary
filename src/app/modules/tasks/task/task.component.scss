@@ -1,0 +1,56 @@
+.dft-task {
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  min-height: 1.5rem;
+}
+
+.dft-task-text-content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.2rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.dft-task-title {
+  font-weight: 500;
+  font-style: italic;
+  font-size: 2rem;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.dft-task-description {
+  font-weight: 100;
+  font-size: 1.2rem;
+}
+
+.dft-task-item {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.dft-task-timing {
+  flex-direction: column;
+  row-gap: 0.5rem;
+  justify-content: right;
+  align-items: center;
+}
+
+.dft-task-completed {
+  justify-content: right;
+  padding-right: 3rem;
+}
+
+.dft-task-remove {
+  display: flex;
+  align-items: center;
+}
+
+.task-menu {
+  display: flex;
+  flex-direction: column;
+}

@@ -29,9 +29,11 @@
     "app.task.create": "Create task",
     "app.task.provideName": "Provide task name",
     "app.task.provideDescription": "Provide description",
-    "app.task.completed": "Completed",
     "app.task.provideStartTime": "Provide start time",
     "app.task.provide EndTime": "Provide end time",
     "app.task.chooseStartDate": "Choose start date",
-    "app.task.chooseEndDate": "Choose end date"
+    "app.task.chooseEndDate": "Choose end date",
+    "app.edit": "Edit",
+    "app.task.completed": "Completed"
+
 }

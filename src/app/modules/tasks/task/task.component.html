@@ -1,0 +1,46 @@
+<main class="dft-task">
+  <div class="dft-task-text-content dft-task-item">
+    <div class="dft-task-title">{{ task.title }}</div>
+    <div class="dft-task-description">{{ task.description }}</div>
+  </div>
+  <div class="dft-task-timing dft-task-item">
+    <div class="dft-task-start-time">
+      {{ task.startTime | date : "mediumDate" }}
+    </div>
+    <div class="dft-task-end-time">
+      {{ task.endTime | date : "mediumDate" }}
+    </div>
+  </div>
+  <div class="dft-task-completed dft-task-item">
+    <mat-checkbox
+      [checked]="task.completed"
+      (click)="toggleTaskCompletion()"
+    ></mat-checkbox>
+  </div>
+  <div class="dft-task-remove">
+    <button mat-raised-button color="primary" [cdkMenuTriggerFor]="editMenu">
+      <mat-icon>edit</mat-icon>
+    </button>
+
+    <ng-template #editMenu>
+      <div class="task-menu" cdkMenu>
+        <button
+          mat-raised-button
+          color="primary"
+          cdkMenuItem
+          (click)="goToEditPage(task)"
+        >
+          {{ "app.edit" | translate }}
+        </button>
+        <button
+          mat-raised-button
+          color="primary"
+          cdkMenuItem
+          (click)="removeTask(task.id)"
+        >
+          {{ "app.remove" | translate }}
+        </button>
+      </div>
+    </ng-template>
+  </div>
+</main>

@@ -1,11 +1,26 @@
-<h1>This is list page</h1>
+<header class="dft-list-page-header">
+  {{ "app.list" | translate }} <i>{{ (list$ | async)?.title }}</i>
+</header>
 
-<div *ngFor="let task of tasks$ | async">
-  {{ task.title }}
-</div>
-<button (click)="showCreateTaskModal()">
-  {{ "app.task.create" | translate }}
-</button>
+<main>
+  <div class="dft-list-page-tasks">
+    <ng-container *ngFor="let task of tasks$ | async">
+      <dft-task
+        class="dft-list-page-task"
+        [task]="task"
+        (remove)="removeTask($event)"
+        (toggle)="toggleTaskState($event)"
+      ></dft-task>
+      <mat-divider class="dft-list-page-tasks-divider"></mat-divider>
+    </ng-container>
+  </div>
+
+  <section class="dft-list-page-controls">
+    <button mat-raised-button color="primary" (click)="showCreateTaskModal()">
+      {{ "app.task.create" | translate }}
+    </button>
+  </section>
+</main>
 
 <dft-lightbox *ngIf="isLightBoxVisible$ | async">
   <dft-create-task-modal

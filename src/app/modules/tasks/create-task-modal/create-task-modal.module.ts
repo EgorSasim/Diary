@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [CreateTaskModalComponent],
@@ -24,6 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    MatCheckboxModule,
   ],
   exports: [CreateTaskModalComponent],
 })
