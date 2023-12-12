@@ -10,7 +10,7 @@ import { REQUIRED_FIELD_ERROR } from 'src/app/common/constants/control-errors';
 import { SnackBarService } from 'src/app/common/services/snackbar.service';
 import { List } from 'src/app/modules/lists/lists.typings';
 import { CreateTaskService } from 'src/app/modules/tasks/create-task-modal/create-task.service';
-import { createTaskForm } from 'src/app/modules/tasks/create-task-modal/create-task.typings';
+import { CreateTaskForm } from 'src/app/modules/tasks/create-task-modal/create-task.typings';
 import { Task } from 'src/app/modules/tasks/typings';
 
 @Component({
@@ -27,7 +27,7 @@ export class CreateTaskModalComponent {
 
   public readonly requiredFieldError = REQUIRED_FIELD_ERROR;
 
-  public formGroup: FormGroup<createTaskForm> = new FormGroup({
+  public formGroup: FormGroup<CreateTaskForm> = new FormGroup({
     title: new FormControl(null, Validators.required),
     completed: new FormControl(false),
     description: new FormControl(null),

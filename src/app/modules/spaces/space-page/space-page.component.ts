@@ -109,9 +109,4 @@ export class SpacePageComponent implements OnInit {
       )
       .subscribe((lists) => this.lists$.next(lists));
   }
-
-  public saySmth(spaceId: number, listId: number): void {
-    console.log('spaceId: ', spaceId);
-    console.log('listId: ', listId);
-  }
 }

@@ -8,6 +8,7 @@
       <dft-task
         class="dft-list-page-task"
         [task]="task"
+        (edit)="goToEditPage($event)"
         (remove)="removeTask($event)"
         (toggle)="toggleTaskState($event)"
       ></dft-task>

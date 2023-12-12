@@ -6,6 +6,7 @@ import { authGuard } from 'src/app/guards/authentication.guard';
 import { SpacePageComponent } from 'src/app/modules/spaces/space-page/space-page.component';
 import { EmptyPageComponent } from 'src/app/modules/empty-page/empty-page.component';
 import { ListPageComponent } from 'src/app/modules/lists/list-page/list-page.component';
+import { TaskEditPageComponent } from 'src/app/modules/tasks/task-edit-page/task-edit-page.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,14 @@ const routes: Routes = [
           import('../app/modules/lists/list-page/list-page.module').then(
             (m) => m.ListPageModule
           ),
+      },
+      {
+        path: 'space/:id/list/:listId/task/:taskId',
+        component: TaskEditPageComponent,
+        loadChildren: () =>
+          import(
+            '../app/modules/tasks/task-edit-page/task-edit-page.module'
+          ).then((m) => m.TaskEditPageModule),
       },
     ],
   },

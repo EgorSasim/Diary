@@ -1,0 +1,27 @@
+.dft-create-task-modal-content {
+  width: 30%;
+  margin: 5% auto;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dft-create-task-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.create-task-modal-inputs {
+  display: flex;
+  align-items: center;
+}
+
+.create-task-moda-inputs-section {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}

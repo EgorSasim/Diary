@@ -1,6 +1,6 @@
 import { FormControl } from '@angular/forms';
 
-export interface createTaskForm {
+export interface CreateTaskForm {
   title: FormControl<string>;
   description: FormControl<string>;
   completed: FormControl<boolean>;

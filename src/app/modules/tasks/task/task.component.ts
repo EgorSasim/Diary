@@ -16,6 +16,7 @@ import { Task } from 'src/app/modules/tasks/typings';
 export class TaskComponent {
   @Input() task: Task;
   @Output() remove: EventEmitter<number> = new EventEmitter();
+  @Output() edit: EventEmitter<number> = new EventEmitter();
   @Output() toggle: EventEmitter<Task> = new EventEmitter();
 
   public toggleTaskCompletion(): void {
@@ -24,5 +25,9 @@ export class TaskComponent {
 
   public removeTask(taskId: number): void {
     this.remove.emit(taskId);
+  }
+
+  public goToEditPage(): void {
+    this.edit.emit(this.task.id);
   }
 }

@@ -32,7 +32,6 @@ export class ListPageComponent implements OnInit {
   public ngOnInit(): void {
     this.trackRouteParams();
     this.trackRefreshParams();
-    console.log('init list page component');
   }
 
   public showCreateTaskModal(): void {
@@ -61,6 +60,10 @@ export class ListPageComponent implements OnInit {
         spaceId: this.list$.value.spaceId,
       })
       .subscribe(() => this.refreshDataService.refreshData());
+  }
+
+  public goToEditPage(taskId: number): void {
+    this.router.navigate([this.router.url, 'task', taskId]);
   }
 
   private trackRouteParams(): void {

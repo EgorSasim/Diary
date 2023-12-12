@@ -31,5 +31,6 @@
     "app.task.chooseStartDate": "Выберите дату начала",
     "app.task.chooseEndDate": "Выберите дату окончания",
     "app.edit": "Редактировать",
-    "app.task.completed": "Завершена"
+    "app.task.completed": "Завершена",
+    "app.task.edit": "Редактировать задачу"
 }

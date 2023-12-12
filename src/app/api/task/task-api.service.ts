@@ -21,6 +21,16 @@ export class TaskApiService {
     }) as Observable<any>;
   }
 
+  public getTask(ids: {
+    spaceId: number;
+    listId: number;
+    taskId: number;
+  }): Observable<Task> {
+    return this.httpClient.get(`${this.serverUrl}/task/${ids.taskId}`, {
+      params: ids,
+    }) as Observable<Task>;
+  }
+
   public createTask(task: Task, list: List): Observable<Task> {
     return this.httpClient.post(`${this.serverUrl}/task`, {
       task,
