@@ -46,7 +46,7 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'list/:id',
+        path: 'space/:id/list/:listId',
         component: ListPageComponent,
         loadChildren: () =>
           import('../app/modules/lists/list-page/list-page.module').then(

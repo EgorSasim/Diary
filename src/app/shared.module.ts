@@ -17,6 +17,8 @@ import { AuthenticationModule } from 'src/app/modules/authentication/authenticat
 import { LangSelectorModule } from 'src/app/modules/common/lang-selector/lang-selector.module';
 import { HomePageModule } from 'src/app/modules/home/home-page/home-page.module';
 import { SidePannelModule } from 'src/app/modules/home/side-pannel/side-pannel.module';
+import { ListPageModule } from 'src/app/modules/lists/list-page/list-page.module';
+import { SpacePageModule } from 'src/app/modules/spaces/space-page/space-page.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');

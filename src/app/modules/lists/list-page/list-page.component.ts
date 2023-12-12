@@ -32,6 +32,7 @@ export class ListPageComponent implements OnInit {
   public ngOnInit(): void {
     this.trackRouteParams();
     this.trackRefreshParams();
+    console.log('init list page component');
   }
 
   public showCreateTaskModal(): void {
@@ -65,7 +66,7 @@ export class ListPageComponent implements OnInit {
   private trackRouteParams(): void {
     this.activatedRoute.params
       .pipe(
-        map((p) => p['id']),
+        map((p) => p['listId']),
         tap((id) => (this.id = id)),
         switchMap((id) => this.listPageService.getList(id)),
         tap((list) => {

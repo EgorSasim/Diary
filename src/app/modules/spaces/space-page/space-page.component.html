@@ -13,7 +13,8 @@
         <mat-icon matListItemIcon>list</mat-icon>
         <div
           matListItemTitle
-          [routerLink]="['/home', 'list', list.id]"
+          [routerLink]="['/home', 'space', space.id, 'list', list.id]"
+          (click)="saySmth(space.id, list.id)"
           class="dft-space-page-list-item-title"
         >
           {{ list.title }}

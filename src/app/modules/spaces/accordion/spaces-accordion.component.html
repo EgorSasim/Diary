@@ -73,7 +73,9 @@
       </mat-panel-description>
     </mat-expansion-panel-header>
     <p *ngFor="let list of spaceIdToListMap.get(space.id)">
-      <a href="">{{ list.title }}</a>
+      <a [routerLink]="['space', space.id, 'list', list.id]">{{
+        list.title
+      }}</a>
     </p>
   </mat-expansion-panel>
 </mat-accordion>
