@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { FormData } from 'src/app/api/common/form.typings';
 import { getServerUrl } from 'src/app/api/common/server/server.constants';
 import { List } from 'src/app/modules/lists/lists.typings';
 import { Task } from 'src/app/modules/tasks/typings';
@@ -17,5 +18,12 @@ export class TaskApiService {
     return this.httpClient.get(`${this.serverUrl}/tasks`, {
       params: { ...list },
     }) as Observable<any>;
+  }
+
+  public createTask(task: Task, list: List): Observable<Task> {
+    return this.httpClient.post(`${this.serverUrl}/task`, {
+      task,
+      list,
+    }) as Observable<Task>;
   }
 }

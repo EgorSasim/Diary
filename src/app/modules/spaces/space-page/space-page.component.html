@@ -82,8 +82,7 @@
   </ng-container>
 </div>
 
-<dft-lightbox class="space-page-rename-list" *ngIf="renameListModal$ | async">
-  <div>Heheheh</div>
+<dft-lightbox *ngIf="renameListModal$ | async">
   <dft-rename-list-modal
     lightbox-body
     [list]="selectedList$ | async"

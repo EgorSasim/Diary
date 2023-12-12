@@ -1,0 +1,87 @@
+<div class="dft-create-task-modal">
+  <button
+    mat-icon-button
+    class="dft-create-task-modal-close"
+    color="accent"
+    (click)="closeModal()"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+  <mat-card class="dft-create-task-modal-content">
+    <mat-card-title>
+      {{ "app.task.create" | translate }}
+    </mat-card-title>
+
+    <div class="create-task-modal-inputs">
+      <section class="create-task-moda-inputs-section">
+        <mat-card-content style="padding-top: 2.5rem"
+          ><dft-input
+            [type]="'text'"
+            [placeholder]="'app.task.provideName' | translate"
+            [label]="'app.task.provideName' | translate"
+            [control]="formGroup.controls['title']"
+            [errors]="requiredFieldError"
+          ></dft-input>
+        </mat-card-content>
+        <mat-form-field [style.fontSize]="'20px'">
+          <mat-label>{{ "app.task.provideDescription" | translate }}</mat-label>
+          <textarea
+            matInput
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="5"
+            [formControl]="formGroup.controls['description']"
+          ></textarea>
+        </mat-form-field>
+        <mat-card-content>
+          <label for="">Completed:</label>
+          <input
+            [type]="'checkbox'"
+            [formControl]="formGroup.controls['completed']"
+          />
+        </mat-card-content>
+      </section>
+      <section class="create-task-moda-inputs-section">
+        <mat-form-field>
+          <mat-label>{{ "app.task.chooseStartDate" | translate }}</mat-label>
+          <input
+            matInput
+            [formControl]="formGroup.controls['startTime']"
+            [matDatepicker]="startTimepicker"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="startTimepicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #startTimepicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ "app.task.chooseEndDate" | translate }}</mat-label>
+          <input
+            matInput
+            [formControl]="formGroup.controls['endTime']"
+            [matDatepicker]="endTimePicker"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="endTimePicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #endTimePicker></mat-datepicker>
+        </mat-form-field>
+      </section>
+    </div>
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="formGroup.controls['title'].invalid"
+        (click)="createTask()"
+      >
+        {{ "app.create" | translate }}
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

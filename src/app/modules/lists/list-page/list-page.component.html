@@ -1,1 +1,17 @@
 <h1>This is list page</h1>
+
+<div *ngFor="let task of tasks$ | async">
+  {{ task.title }}
+</div>
+<button (click)="showCreateTaskModal()">
+  {{ "app.task.create" | translate }}
+</button>
+
+<dft-lightbox *ngIf="isLightBoxVisible$ | async">
+  <dft-create-task-modal
+    lightbox-body
+    [list]="list$ | async"
+    (close)="closeModal()"
+    (create)="updateValues()"
+  ></dft-create-task-modal>
+</dft-lightbox>

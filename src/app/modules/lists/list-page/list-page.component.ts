@@ -1,27 +1,52 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BehaviorSubject, filter, map, switchMap, tap } from 'rxjs';
-import { ListApiService } from 'src/app/api/list/list-api.service';
+import { BehaviorSubject, Observable, filter, map, switchMap, tap } from 'rxjs';
+import { RefreshDataService } from 'src/app/common/services/refreshData.service';
+import { LightboxService } from 'src/app/modules/common/lightbox/lightbox.component.service';
 import { ListPageService } from 'src/app/modules/lists/list-page/list-page.service';
 import { List } from 'src/app/modules/lists/lists.typings';
+import { Task } from 'src/app/modules/tasks/typings';
 
 @Component({
   selector: 'dft-list-page',
   templateUrl: './list-page.component.html',
   styleUrl: './list-page.component.scss',
-  providers: [ListPageService],
+  providers: [ListPageService, LightboxService],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ListPageComponent implements OnInit {
   public list$: BehaviorSubject<List> = new BehaviorSubject(null);
+  public tasks$: BehaviorSubject<Task[]> = new BehaviorSubject(null);
+  public isLightBoxVisible$: Observable<boolean> =
+    this.lightboxService.getVisibility$();
   private id: number;
+
   constructor(
     private listPageService: ListPageService,
     private activatedRoute: ActivatedRoute,
+    private refreshDataService: RefreshDataService,
+    private lightboxService: LightboxService,
     private router: Router
   ) {}
 
   public ngOnInit(): void {
+    this.trackRouteParams();
+    this.trackRefreshParams();
+  }
+
+  public showCreateTaskModal(): void {
+    this.lightboxService.showLightbox();
+  }
+
+  public closeModal(): void {
+    this.lightboxService.hideLightbox();
+  }
+
+  public updateValues(): void {
+    this.refreshDataService.refreshData();
+  }
+
+  private trackRouteParams(): void {
     this.activatedRoute.params
       .pipe(
         map((p) => p['id']),
@@ -36,6 +61,25 @@ export class ListPageComponent implements OnInit {
         tap((list) => this.list$.next(list)),
         switchMap((list) => this.listPageService.getTasks(list))
       )
-      .subscribe((id) => console.log('id: ', id));
+      .subscribe((tasks) => {
+        this.tasks$.next(tasks);
+        this.refreshDataService.refreshData();
+      });
+  }
+
+  private trackRefreshParams(): void {
+    this.refreshDataService.areRefreshed$
+      .pipe(
+        switchMap((id) => this.listPageService.getList(this.id)),
+        tap((list) => {
+          if (!list) {
+            this.router.navigate['/home'];
+          }
+        }),
+        filter((list) => !!list),
+        tap((list) => this.list$.next(list)),
+        switchMap((list) => this.listPageService.getTasks(list))
+      )
+      .subscribe((tasks) => this.tasks$.next(tasks));
   }
 }

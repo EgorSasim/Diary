@@ -42,6 +42,30 @@ export class SpacePageComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
+    this.trackRouteParams();
+    this.trackRefreshParams();
+  }
+
+  public removeList(list: List) {
+    this.spacePageService
+      .removeList(list.id, list.spaceId)
+      .subscribe(() => this.refreshDataService.refreshData());
+  }
+
+  public showRenameListModal(list: List) {
+    this.selectedList$.next(list);
+    this.lightboxService.showLightbox();
+  }
+
+  public closeModal(): void {
+    this.lightboxService.hideLightbox();
+  }
+
+  public refreshData(): void {
+    this.refreshDataService.refreshData();
+  }
+
+  private trackRouteParams(): void {
     this.activatedRoute.params
       .pipe(
         map((p) => p['id']),
@@ -63,7 +87,9 @@ export class SpacePageComponent implements OnInit {
       .subscribe((lists) => {
         this.lists$.next(lists);
       });
+  }
 
+  private trackRefreshParams(): void {
     this.refreshDataService.areRefreshed$
       .pipe(
         switchMap(() =>
@@ -82,24 +108,5 @@ export class SpacePageComponent implements OnInit {
         )
       )
       .subscribe((lists) => this.lists$.next(lists));
-  }
-
-  public removeList(list: List) {
-    this.spacePageService
-      .removeList(list.id, list.spaceId)
-      .subscribe(() => this.refreshDataService.refreshData());
-  }
-
-  public showRenameListModal(list: List) {
-    this.selectedList$.next(list);
-    this.lightboxService.showLightbox();
-  }
-
-  public closeModal(): void {
-    this.lightboxService.hideLightbox();
-  }
-
-  public refreshData(): void {
-    this.refreshDataService.refreshData();
   }
 }

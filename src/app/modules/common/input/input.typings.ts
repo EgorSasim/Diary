@@ -7,6 +7,7 @@ export enum StrictInputType {
   TEXT = 'text',
   EMAIL = 'email',
   PASSWORD = 'password',
+  CHECKBOX = 'checkbox',
 }
 
 export type InputType = StrictInputType | string;

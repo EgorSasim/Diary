@@ -25,5 +25,9 @@
     "app.provideListName": "Введите название списка",
     "app.notes": "Записки",
     "app.list.rename": "Переименовать список",
-    "app.welcome": "Добро пожаловать в ежедневник и финансовый трекер, {{name}}!!!"
+    "app.welcome": "Добро пожаловать в ежедневник и финансовый трекер, {{name}}!!!",
+    "app.task.create": "Создать задачу",
+    "app.task.provideName": "Введите название задачи",
+    "app.task.chooseStartDate": "Выберите дату начала",
+    "app.task.chooseEndDate": "Выберите дату окончания"
 }

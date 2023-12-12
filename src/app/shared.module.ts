@@ -4,6 +4,8 @@ import {
   HttpClientModule,
 } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
@@ -31,6 +33,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     RouterModule,
     SidePannelModule,
     HomePageModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

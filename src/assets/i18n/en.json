@@ -25,5 +25,13 @@
     "app.provideListName": "Provide list name",
     "app.notes": "Notes",
     "app.list.rename": "Rename list",
-    "app.welcome": "Welcome to Diary and Finances tracker app, {{name}}!!!"
+    "app.welcome": "Welcome to Diary and Finances tracker app, {{name}}!!!",
+    "app.task.create": "Create task",
+    "app.task.provideName": "Provide task name",
+    "app.task.provideDescription": "Provide description",
+    "app.task.completed": "Completed",
+    "app.task.provideStartTime": "Provide start time",
+    "app.task.provide EndTime": "Provide end time",
+    "app.task.chooseStartDate": "Choose start date",
+    "app.task.chooseEndDate": "Choose end date"
 }
