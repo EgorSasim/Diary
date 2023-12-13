@@ -14,7 +14,6 @@
         <div
           matListItemTitle
           [routerLink]="['/home', 'space', space.id, 'list', list.id]"
-          (click)="saySmth(space.id, list.id)"
           class="dft-space-page-list-item-title"
         >
           {{ list.title }}
@@ -57,27 +56,17 @@
       >
         <mat-icon matListItemIcon>list</mat-icon>
         <div matListItemTitle class="dft-space-page-list-item-title">
-          {{ list.title }}
+          {{ note.title }}
         </div>
 
         <button
           mat-raised-button
           color="primary"
           [cdkMenuTriggerFor]="editNoteMenu"
+          (click)="removeNote(note)"
         >
-          <mat-icon>edit</mat-icon>
+          {{ "app.remove" | translate }}
         </button>
-
-        <ng-template #editNoteMenu>
-          <div class="dftitem-space-page-list-menu" cdkMenu>
-            <button mat-raised-button color="primary" cdkMenuItem>
-              {{ "app.rename" | translate }}
-            </button>
-            <button mat-raised-button color="primary" cdkMenuItem>
-              {{ "app.remove" | translate }}
-            </button>
-          </div>
-        </ng-template>
       </mat-list-item>
     </mat-list>
   </ng-container>

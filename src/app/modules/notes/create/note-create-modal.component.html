@@ -1,0 +1,45 @@
+<div class="dft-rename-space-modal">
+  <button
+    mat-icon-button
+    class="dft-rename-space-modal-close"
+    color="accent"
+    (click)="closeModal()"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+  <mat-card class="dft-rename-space-modal-content">
+    <mat-card-title class="dft-rename-space-modal-content__item">
+      {{ "app.note.create" | translate }}
+    </mat-card-title>
+    <mat-card-content class="dft-rename-space-modal-content__item"
+      ><dft-input
+        [type]="'text'"
+        [placeholder]="'app.note.provideName' | translate"
+        [label]="'app.note.provideName' | translate"
+        [control]="formGroup.controls['title']"
+        [errors]="requiredFieldError"
+      ></dft-input>
+      <mat-form-field [style.fontSize]="'20px'">
+        <mat-label>{{ "app.note.provideText" | translate }}</mat-label>
+        <textarea
+          matInput
+          cdkTextareaAutosize
+          #autosize="cdkTextareaAutosize"
+          cdkAutosizeMinRows="1"
+          cdkAutosizeMaxRows="7"
+          [formControl]="formGroup.controls['text']"
+        ></textarea>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions class="dft-rename-space-modal-content__item">
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="formGroup.controls['title'].invalid"
+        (click)="createNote()"
+      >
+        {{ "app.create" | translate }}
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

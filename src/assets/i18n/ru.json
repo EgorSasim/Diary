@@ -32,5 +32,7 @@
     "app.task.chooseEndDate": "Выберите дату окончания",
     "app.edit": "Редактировать",
     "app.task.completed": "Завершена",
-    "app.task.edit": "Редактировать задачу"
+    "app.task.edit": "Редактировать задачу",
+    "app.note.provideName": "Введите название записки",
+    "app.note.provideText": "Введите текст записки"
 }

@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { REQUIRED_FIELD_ERROR } from 'src/app/common/constants/control-errors';
+import { RefreshDataService } from 'src/app/common/services/refreshData.service';
 import { SnackBarService } from 'src/app/common/services/snackbar.service';
 import { CreateSpaceModalService } from 'src/app/modules/spaces/create-space/create-space-modal.service';
 import { CreateSpace } from 'src/app/modules/spaces/create-space/create-space.typings';
@@ -30,6 +31,7 @@ export class CreateSpaceModalComponent {
 
   constructor(
     private createSpaceModalService: CreateSpaceModalService,
+    private refreshDataService: RefreshDataService,
     private snackBarService: SnackBarService
   ) {}
 
@@ -42,6 +44,7 @@ export class CreateSpaceModalComponent {
       .createSpace(this.formGroup.controls['title'].value)
       .subscribe({
         next: (res: Space) => {
+          this.refreshDataService.refreshData();
           this.create.emit(res);
           this.closeModal();
         },

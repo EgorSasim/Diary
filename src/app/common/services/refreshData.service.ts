@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ReplaySubject, forkJoin, switchMap, takeUntil, tap } from 'rxjs';
+import { ReplaySubject, forkJoin, of, switchMap, takeUntil, tap } from 'rxjs';
 import { ListApiService } from 'src/app/api/list/list-api.service';
+import { NoteApiService } from 'src/app/api/note/note-api.service';
 import { SpaceApiService } from 'src/app/api/space/spase-api.service';
 
 @Injectable({
@@ -11,6 +12,7 @@ export class RefreshDataService {
 
   constructor(
     private listApiService: ListApiService,
+    private noteApiSerivce: NoteApiService,
     private spaceApiService: SpaceApiService
   ) {}
 
@@ -24,12 +26,20 @@ export class RefreshDataService {
           }
         }),
         switchMap((spaces) =>
+          forkJoin({
+            spaces: of(spaces),
+            lists: spaces.map((space) =>
+              this.listApiService.getLists(space.id)
+            ),
+          })
+        ),
+        switchMap((args) =>
           forkJoin(
-            spaces.map((space) => this.listApiService.getLists(space.id))
+            args.spaces.map((space) => this.noteApiSerivce.getNotes(space.id))
           )
         )
       )
-      .subscribe(() => {
+      .subscribe((notes) => {
         this.areRefreshed$.next();
       });
   }

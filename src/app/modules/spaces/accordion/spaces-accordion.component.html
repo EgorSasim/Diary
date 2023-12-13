@@ -32,7 +32,12 @@
             >
               {{ "app.list" | translate }}
             </button>
-            <button mat-raised-button color="primary" cdkMenuItem>
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="showCreateNoteModal(space)"
+              cdkMenuItem
+            >
               {{ "app.note" | translate }}
             </button>
           </div>
@@ -96,4 +101,13 @@
     (close)="hideModal()"
     (create)="emitListCreate()"
   ></dft-create-list-modal>
+
+  <dft-note-create-modal
+    *ngIf="createNote$ | async"
+    lightbox-body
+    [spaceId]="(selectedSpace$ | async).id"
+    (close)="hideModal()"
+    (create)="emitNoteCreate()"
+  >
+  </dft-note-create-modal>
 </dft-lightbox>

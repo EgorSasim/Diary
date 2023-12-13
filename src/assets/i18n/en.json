@@ -35,5 +35,8 @@
     "app.task.chooseEndDate": "Choose end date",
     "app.edit": "Edit",
     "app.task.completed": "Completed",
-    "app.task.edit": "Edit task"
+    "app.task.edit": "Edit task",
+    "app.note.create": "Create note",
+    "app.note.provideName": "Provide note name",
+    "app.note.provideText": "Provide note text"
 }

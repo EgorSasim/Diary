@@ -12,6 +12,7 @@ import { LightboxModule } from 'src/app/modules/common/lightbox/lightbox.module'
 import { RenameSpaceModalModule } from 'src/app/modules/spaces/rename-space-modal/rename-space-modal.module';
 import { CreateListModalModule } from 'src/app/modules/lists/create-list/create-list-modal.module';
 import { RouterModule } from '@angular/router';
+import { NoteCreateModalModule } from 'src/app/modules/notes/create/note-create-modal.module';
 
 @NgModule({
   declarations: [SpacesAccrodionComponent],
@@ -28,6 +29,7 @@ import { RouterModule } from '@angular/router';
     RenameSpaceModalModule,
     CreateListModalModule,
     RouterModule,
+    NoteCreateModalModule,
   ],
   exports: [SpacesAccrodionComponent],
 })
