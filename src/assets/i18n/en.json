@@ -37,6 +37,7 @@
     "app.task.completed": "Completed",
     "app.task.edit": "Edit task",
     "app.note.create": "Create note",
+    "app.note.edit": "Edit note",
     "app.note.provideName": "Provide note name",
     "app.note.provideText": "Provide note text"
 }

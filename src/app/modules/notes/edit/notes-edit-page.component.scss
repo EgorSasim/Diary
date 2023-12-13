@@ -1,4 +1,4 @@
-.dft-note-create-modal {
+.dft-notes-edit-modal {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
@@ -7,13 +7,13 @@
   left: 0;
 }
 
-.dft-note-create-modal-close {
+.dft-notes-edit-modal-close {
   position: absolute;
   top: 1rem;
   right: 1rem;
 }
 
-.dft-note-create-modal-content {
+.dft-notes-edit-modal-content {
   width: 30%;
   margin: 5% auto;
   background-color: #fff;
@@ -22,6 +22,6 @@
   justify-content: center;
 }
 
-.dft-note-create-modal-content__item {
+.dft-notes-edit-modal-content__item {
   flex-grow: 1;
 }

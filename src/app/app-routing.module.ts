@@ -7,6 +7,7 @@ import { SpacePageComponent } from 'src/app/modules/spaces/space-page/space-page
 import { EmptyPageComponent } from 'src/app/modules/empty-page/empty-page.component';
 import { ListPageComponent } from 'src/app/modules/lists/list-page/list-page.component';
 import { TaskEditPageComponent } from 'src/app/modules/tasks/task-edit-page/task-edit-page.component';
+import { NotesEditPageComponent } from 'src/app/modules/notes/edit/notes-edit-page.component';
 
 const routes: Routes = [
   {
@@ -61,6 +62,14 @@ const routes: Routes = [
           import(
             '../app/modules/tasks/task-edit-page/task-edit-page.module'
           ).then((m) => m.TaskEditPageModule),
+      },
+      {
+        path: 'space/:id/note/:noteId',
+        component: NotesEditPageComponent,
+        loadChildren: () =>
+          import('../app/modules/notes/edit/notes-edit-page.module').then(
+            (m) => m.NotesEditPageModule
+          ),
       },
     ],
   },

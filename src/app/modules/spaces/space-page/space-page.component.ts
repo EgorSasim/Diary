@@ -50,7 +50,7 @@ export class SpacePageComponent implements OnInit {
   public removeList(list: List) {
     this.spacePageService
       .removeList(list.id, list.spaceId)
-      .subscribe(() => this.refreshData);
+      .subscribe(() => this.refreshData());
   }
 
   public showRenameListModal(list: List) {

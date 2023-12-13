@@ -1,17 +1,9 @@
-<div class="dft-note-create-modal">
-  <button
-    mat-icon-button
-    class="dft-note-create-modal-close"
-    color="accent"
-    (click)="closeModal()"
-  >
-    <mat-icon>close</mat-icon>
-  </button>
-  <mat-card class="dft-note-create-modal-content">
-    <mat-card-title class="dft-note-create-modal-content__item">
+<div>
+  <mat-card class="dft-notes-edit-modal-content">
+    <mat-card-title class="dft-notes-edit-modal-content__item">
       {{ "app.note.create" | translate }}
     </mat-card-title>
-    <mat-card-content class="dft-note-create-modal-content__item"
+    <mat-card-content class="dft-notes-edit-modal-content__item"
       ><dft-input
         [type]="'text'"
         [placeholder]="'app.note.provideName' | translate"
@@ -31,14 +23,14 @@
         ></textarea>
       </mat-form-field>
     </mat-card-content>
-    <mat-card-actions class="dft-note-create-modal-content__item">
+    <mat-card-actions class="dft-notes-edit-modal-content__item">
       <button
         mat-raised-button
         color="primary"
         [disabled]="formGroup.controls['title'].invalid"
-        (click)="createNote()"
+        (click)="editNote()"
       >
-        {{ "app.create" | translate }}
+        {{ "app.save" | translate }}
       </button>
     </mat-card-actions>
   </mat-card>

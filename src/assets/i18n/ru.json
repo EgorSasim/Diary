@@ -33,6 +33,8 @@
     "app.edit": "Редактировать",
     "app.task.completed": "Завершена",
     "app.task.edit": "Редактировать задачу",
+    "app.note.create": "Создать записку",
+    "app.note.edit": "Редактировать записку",
     "app.note.provideName": "Введите название записки",
     "app.note.provideText": "Введите текст записки"
 }

@@ -29,4 +29,17 @@ export class NoteApiService {
       body: { note },
     }) as Observable<Note>;
   }
+
+  public getNote(spaceId: number, noteId: number): Observable<Note> {
+    return this.httpClient.get(`${this.serverUrl}/note/${noteId}`, {
+      params: { spaceId, noteId },
+    }) as Observable<Note>;
+  }
+
+  public updateNote(note: Note): Observable<Note> {
+    return this.httpClient.put(
+      `${this.serverUrl}/note`,
+      note
+    ) as Observable<Note>;
+  }
 }

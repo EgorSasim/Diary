@@ -55,7 +55,11 @@
         class="dft-space-page-list-item"
       >
         <mat-icon matListItemIcon>list</mat-icon>
-        <div matListItemTitle class="dft-space-page-list-item-title">
+        <div
+          matListItemTitle
+          [routerLink]="['/home', 'space', space.id, 'note', note.id]"
+          class="dft-space-page-list-item-title"
+        >
           {{ note.title }}
         </div>
 
