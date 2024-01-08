@@ -25,3 +25,9 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+# Brief Description
+
+This is simple diary app, which was written in 5 days.
+It uses angular on front, nestJs on back(U may find it in diaryServer repo in my account) and postgreSql in dockerContainer as DB.
+To launch it U need to clone two repos(this one and diaryServer) and follow instructions described in each repo.
